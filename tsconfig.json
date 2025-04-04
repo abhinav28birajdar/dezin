@@ -1,3 +1,4 @@
+// E:/programming/next js App/dezinbox/tsconfig.json
 {
   "compilerOptions": {
     "target": "ES2017",
@@ -18,8 +19,12 @@
         "name": "next"
       }
     ],
+    // --- Add baseUrl here ---
+    "baseUrl": ".", // Tells TypeScript the root directory is the base for path resolution
+    // --- Path alias mapping ---
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"] // Maps "@/" to the root directory (relative to baseUrl)
+                     // If your code is in an 'src' folder, use: ["./src/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
