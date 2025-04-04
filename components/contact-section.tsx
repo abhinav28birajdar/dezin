@@ -35,10 +35,12 @@ export function ContactSection() {
     e.preventDefault()
     setIsSubmitting(true)
 
+    // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false)
       setIsSubmitted(true)
 
+      // Reset form after a delay
       setTimeout(() => {
         setIsSubmitted(false)
         setFormState({
@@ -72,6 +74,7 @@ export function ContactSection() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-10 items-start">
+          {/* Contact Information Column */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -83,7 +86,7 @@ export function ContactSection() {
 
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <Mail className="h-6 w-6 mr-4 text-primary" />
+                  <Mail className="h-6 w-6 mr-4 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-medium">Email Us</h4>
                     <p className="text-muted-foreground">hello@agraphicart.com</p>
@@ -92,7 +95,7 @@ export function ContactSection() {
                 </div>
 
                 <div className="flex items-start">
-                  <Phone className="h-6 w-6 mr-4 text-primary" />
+                  <Phone className="h-6 w-6 mr-4 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-medium">Call Us</h4>
                     <p className="text-muted-foreground">+1 (555) 123-4567</p>
@@ -101,7 +104,7 @@ export function ContactSection() {
                 </div>
 
                 <div className="flex items-start">
-                  <MapPin className="h-6 w-6 mr-4 text-primary" />
+                  <MapPin className="h-6 w-6 mr-4 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-medium">Visit Us</h4>
                     <p className="text-muted-foreground">
@@ -118,8 +121,10 @@ export function ContactSection() {
               <div className="mt-10">
                 <h4 className="font-medium mb-4">Follow Us</h4>
                 <div className="flex space-x-4">
+                  {/* Social Icons - Placeholder links */}
                   <a
                     href="#"
+                    aria-label="Facebook"
                     className="h-10 w-10 flex items-center justify-center rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
                   >
                     <svg
@@ -132,12 +137,14 @@ export function ContactSection() {
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
+                      className="lucide lucide-facebook"
                     >
                       <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                     </svg>
                   </a>
                   <a
                     href="#"
+                    aria-label="Instagram"
                     className="h-10 w-10 flex items-center justify-center rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
                   >
                     <svg
@@ -150,6 +157,7 @@ export function ContactSection() {
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
+                      className="lucide lucide-instagram"
                     >
                       <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -158,6 +166,7 @@ export function ContactSection() {
                   </a>
                   <a
                     href="#"
+                    aria-label="LinkedIn"
                     className="h-10 w-10 flex items-center justify-center rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
                   >
                     <svg
@@ -170,6 +179,7 @@ export function ContactSection() {
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
+                      className="lucide lucide-linkedin"
                     >
                       <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                       <rect x="2" y="9" width="4" height="12"></rect>
@@ -178,6 +188,7 @@ export function ContactSection() {
                   </a>
                   <a
                     href="#"
+                    aria-label="Twitter"
                     className="h-10 w-10 flex items-center justify-center rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
                   >
                     <svg
@@ -190,6 +201,7 @@ export function ContactSection() {
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
+                      className="lucide lucide-twitter"
                     >
                       <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
                     </svg>
@@ -199,6 +211,7 @@ export function ContactSection() {
             </div>
           </motion.div>
 
+          {/* Contact Form Column */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -212,7 +225,7 @@ export function ContactSection() {
                 <div className="flex flex-col items-center justify-center py-10 text-center">
                   <CheckCircle className="h-16 w-16 text-green-500 mb-4" />
                   <h4 className="text-xl font-bold mb-2">Message Sent!</h4>
-                  {/* Line 215 Fix */}
+                  {/* Line 216 Fix */}
                   <p className="text-muted-foreground">Thank you for reaching out. We'll get back to you shortly.</p>
                 </div>
               ) : (
@@ -227,6 +240,7 @@ export function ContactSection() {
                         onChange={handleChange}
                         placeholder="John Doe"
                         required
+                        aria-required="true"
                       />
                     </div>
 
@@ -240,11 +254,12 @@ export function ContactSection() {
                         onChange={handleChange}
                         placeholder="john@example.com"
                         required
+                        aria-required="true"
                       />
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="phone">Phone Number</Label>
+                      <Label htmlFor="phone">Phone Number (Optional)</Label>
                       <Input
                         id="phone"
                         name="phone"
@@ -256,7 +271,7 @@ export function ContactSection() {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="company">Company</Label>
+                      <Label htmlFor="company">Company (Optional)</Label>
                       <Input
                         id="company"
                         name="company"
@@ -269,7 +284,7 @@ export function ContactSection() {
 
                   <div className="space-y-2">
                     <Label htmlFor="service">Service Interested In</Label>
-                    <Select value={formState.service} onValueChange={handleServiceChange}>
+                    <Select name="service" value={formState.service} onValueChange={handleServiceChange}>
                       <SelectTrigger id="service">
                         <SelectValue placeholder="Select a service" />
                       </SelectTrigger>
@@ -295,21 +310,24 @@ export function ContactSection() {
                       placeholder="Tell us about your project..."
                       rows={5}
                       required
+                      aria-required="true"
                     />
                   </div>
 
                   <Button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+                    className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold"
                     disabled={isSubmitting}
+                    aria-live="polite" // Announce changes for screen readers
                   >
                     {isSubmitting ? (
-                      <span className="flex items-center">
+                       <span className="flex items-center justify-center">
                         <svg
-                          className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                          className="animate-spin -ml-1 mr-3 h-5 w-5"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
+                          aria-hidden="true" // Hide decorative spinner from screen readers
                         >
                           <circle
                             className="opacity-25"
@@ -328,7 +346,7 @@ export function ContactSection() {
                         Sending...
                       </span>
                     ) : (
-                      <span className="flex items-center">
+                      <span className="flex items-center justify-center">
                         <Send className="mr-2 h-4 w-4" />
                         Send Message
                       </span>
