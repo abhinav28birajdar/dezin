@@ -82,7 +82,6 @@ const clientLogos = [
   "/placeholder-logo.svg",
 ]
 
-
 export function TestimonialsSection() {
   const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
@@ -130,7 +129,7 @@ export function TestimonialsSection() {
           }}
         >
           <CarouselContent>
-            {testimonials.map((testimonial, _index) => (
+            {testimonials.map((testimonial) => ( // Removed unused _index parameter
               <CarouselItem key={testimonial.id} className="md:basis-1/2 lg:basis-1/2">
                 <div className="p-1">
                   <Card className="h-full">
