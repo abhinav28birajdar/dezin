@@ -115,9 +115,9 @@ export function TestimonialsSection() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Client Testimonials</h2>
-          {/* FIXED Line 120 */}
+          {/* FIXED Line 120 - Escaped single quotes */}
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Don't just take our word for it. Here's what our clients have to say about working with us.
+            Don&apos;t just take our word for it. Here&apos;s what our clients have to say about working with us.
           </p>
         </motion.div>
 
@@ -145,8 +145,8 @@ export function TestimonialsSection() {
                           />
                         ))}
                       </div>
-                      {/* FIXED Line 149 */}
-                      <p className="text-muted-foreground mb-6">"{testimonial.content}"</p>
+                      {/* FIXED Line 149 - Escaped double quotes */}
+                      <p className="text-muted-foreground mb-6">&quot;{testimonial.content}&quot;</p>
                     </CardContent>
                     <CardFooter className="flex items-center border-t pt-4 mt-auto"> {/* Added mt-auto */}
                       <Avatar className="h-10 w-10 mr-4">
