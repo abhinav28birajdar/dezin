@@ -102,7 +102,7 @@ export function Navbar() {
             </NavigationMenuList>
           </NavigationMenu>
 
-          {/* Line 106 Fix */}
+          {/* Line 107 Fix */}
           <Button className="ml-4 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600">
             Let's Talk
           </Button>
@@ -175,7 +175,7 @@ export function Navbar() {
             >
               Contact
             </Link>
-            {/* Line 178 Fix */}
+            {/* Line 180 Fix */}
             <Button className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600">
               Let's Talk
             </Button>
