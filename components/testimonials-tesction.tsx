@@ -117,8 +117,8 @@ export function TestimonialsSection() {
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Client Testimonials</h2>
           {/* Line 120 Fix */}
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Don't just take our word for it. Here's what our clients have to say about working with us.
-          </p>
+  Don't just take our word for it. Here's what our clients have to say about working with us.
+</p>
         </motion.div>
 
         <Carousel
