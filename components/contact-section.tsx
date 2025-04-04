@@ -65,10 +65,8 @@ export function ContactSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          {/* FIXED Line 67 */}
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Let's Create Something Amazing</h2>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Let&apos;s Create Something Amazing</h2>
 
-          {/* Line 69 */}
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Ready to elevate your brand? Get in touch with our team to discuss your project.
           </p>
@@ -226,8 +224,7 @@ export function ContactSection() {
                 <div className="flex flex-col items-center justify-center py-10 text-center">
                   <CheckCircle className="h-16 w-16 text-green-500 mb-4" />
                   <h4 className="text-xl font-bold mb-2">Message Sent!</h4>
-                  {/* FIXED Line ~229 */}
-                  <p className="text-muted-foreground">Thank you for reaching out. We'll get back to you shortly.</p>
+                  <p className="text-muted-foreground">Thank you for reaching out. We&apos;ll get back to you shortly.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
