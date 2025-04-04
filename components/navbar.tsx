@@ -102,10 +102,10 @@ export function Navbar() {
             </NavigationMenuList>
           </NavigationMenu>
 
-          {/* Line 107 Fix */}
-          <Button className="ml-4 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600">
-  Let's Talk
-</Button>
+          {/* FIXED Line 107 */}
+          <Button asChild className="ml-4 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white">
+            <Link href="/contact">Let's Talk</Link>
+          </Button>
           <ModeToggle />
         </div>
 
@@ -174,10 +174,10 @@ export function Navbar() {
             >
               Contact
             </Link>
-            {/* Line 180 Fix */}
-            <Button className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600">
-  Let's Talk
-</Button>
+            {/* FIXED Line 179 */}
+            <Button asChild className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white">
+               <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>Let's Talk</Link>
+            </Button>
           </div>
         </div>
       )}
