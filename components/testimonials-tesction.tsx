@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import {
@@ -9,13 +9,12 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-  type CarouselApi // Import the CarouselApi type from the component
+  type CarouselApi
 } from "@/components/ui/carousel"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Star } from "lucide-react"
 import Image from "next/image"
 
-// --- Testimonials data remains the same ---
 const testimonials = [
   {
     id: 1,
@@ -74,7 +73,6 @@ const testimonials = [
   },
 ]
 
-// --- clientLogos data remains the same ---
 const clientLogos = [
   "/placeholder-logo.svg",
   "/placeholder-logo.svg",
@@ -86,40 +84,30 @@ const clientLogos = [
 
 
 export function TestimonialsSection() {
-  // Use the imported CarouselApi type for the state. Initialize with undefined.
   const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
 
   useEffect(() => {
-    // Exit early if the api instance is not available
     if (!api) {
       return
     }
 
-    // Set the initial current slide index
     setCurrent(api.selectedScrollSnap())
 
-    // Define the event handler
     const handleSelect = () => {
-      // Use optional chaining just in case api becomes undefined unexpectedly,
-      // though the cleanup function should prevent this from being called after unmount.
       setCurrent(api?.selectedScrollSnap() ?? 0)
     }
 
-    // Subscribe to the 'select' event
     api.on("select", handleSelect)
 
-    // Return a cleanup function to unsubscribe from the event
     return () => {
-      // Use optional chaining for safety during cleanup
       api?.off("select", handleSelect)
     }
-  }, [api]) // Re-run the effect if the api instance changes
+  }, [api])
 
   return (
     <section className="py-24 bg-background">
       <div className="container px-4 md:px-6">
-        {/* --- Intro text --- */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -133,9 +121,7 @@ export function TestimonialsSection() {
           </p>
         </motion.div>
 
-        {/* Testimonial Carousel */}
         <Carousel
-          // Pass the state setter function. It now has a compatible type.
           setApi={setApi}
           className="w-full max-w-5xl mx-auto"
           opts={{
@@ -144,7 +130,7 @@ export function TestimonialsSection() {
           }}
         >
           <CarouselContent>
-            {testimonials.map((testimonial, index) => (
+            {testimonials.map((testimonial, _index) => (
               <CarouselItem key={testimonial.id} className="md:basis-1/2 lg:basis-1/2">
                 <div className="p-1">
                   <Card className="h-full">
@@ -187,28 +173,22 @@ export function TestimonialsSection() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          {/* Navigation and Dots */}
           <div className="flex justify-center items-center mt-8">
-             <CarouselPrevious className="relative static translate-y-0 mr-2" /> {/* Adjusted class for positioning */}
+             <CarouselPrevious className="relative static translate-y-0 mr-2" />
             <div className="flex space-x-1 mx-4">
-               {/* Use api?.scrollSnapList().length to get the actual number of slides if needed,
-                   or testimonials.length if it matches the slides directly */}
               {api?.scrollSnapList().map((_, index) => (
                 <div
                   key={index}
                   className={`h-2 w-2 rounded-full transition-colors duration-200 ${
                     current === index ? "bg-primary" : "bg-muted hover:bg-muted-foreground/50"
                   }`}
-                  // Optional: Add onClick handler to navigate dots
-                  // onClick={() => api?.scrollTo(index)}
                 />
               ))}
             </div>
-             <CarouselNext className="relative static translate-y-0 ml-2" /> {/* Adjusted class for positioning */}
+             <CarouselNext className="relative static translate-y-0 ml-2" />
           </div>
         </Carousel>
 
-        {/* Client Logos */}
         <div className="mt-24">
           <h3 className="text-center text-xl font-semibold mb-10">Trusted by Leading Brands</h3>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">

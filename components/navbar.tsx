@@ -1,8 +1,6 @@
 "use client"
 
-import React from "react"
-
-import { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ModeToggle } from "@/components/mode-toggle"
@@ -45,7 +43,6 @@ export function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-1">
           <NavigationMenu>
             <NavigationMenuList>
@@ -112,7 +109,6 @@ export function Navbar() {
           <ModeToggle />
         </div>
 
-        {/* Mobile Menu Button */}
         <div className="flex md:hidden items-center space-x-4">
           <ModeToggle />
           <Button
@@ -126,7 +122,6 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden">
           <div className="flex flex-col space-y-4 px-4 py-6 bg-background border-b">
@@ -244,4 +239,3 @@ const ListItem = React.forwardRef<React.ElementRef<"a">, React.ComponentPropsWit
   },
 )
 ListItem.displayName = "ListItem"
-
