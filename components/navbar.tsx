@@ -102,9 +102,9 @@ export function Navbar() {
             </NavigationMenuList>
           </NavigationMenu>
 
-          {/* FIXED Line 107 */}
+          {/* FIXED Line 107 - Escaped apostrophe in "Let's Talk" */}
           <Button asChild className="ml-4 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white">
-            <Link href="/contact">Let's Talk</Link>
+            <Link href="/contact">Let&apos;s Talk</Link>
           </Button>
           <ModeToggle />
         </div>
@@ -174,9 +174,9 @@ export function Navbar() {
             >
               Contact
             </Link>
-            {/* FIXED Line 179 */}
+            {/* FIXED Line 179 - Escaped apostrophe in "Let's Talk" */}
             <Button asChild className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white">
-               <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>Let's Talk</Link>
+               <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>Let&apos;s Talk</Link>
             </Button>
           </div>
         </div>
