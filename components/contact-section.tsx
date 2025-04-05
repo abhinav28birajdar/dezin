@@ -1,4 +1,4 @@
-"use client" // Keep this directive at the top
+"use client"
 
 import React, { useState, useRef, useEffect } from "react"
 import { motion } from "framer-motion"
@@ -13,6 +13,7 @@ import {
   SelectValue
 } from "@/components/ui/select"
 import { Label } from "@/components/ui/label"
+// Added Mail, Phone, MapPin to imports
 import { Send, CheckCircle, AlertCircle, Mail, Phone, MapPin } from "lucide-react"
 import emailjs, { EmailJSResponseStatus } from "@emailjs/browser"
 
@@ -90,8 +91,7 @@ export function ContactSection() {
 
     emailjs
       .sendForm(emailJsServiceId, emailJsTemplateId, formRef.current)
-      // FIX 1: Changed 'response' to '_response' as it's not used
-      .then((_response: EmailJSResponseStatus) => {
+      .then((response: EmailJSResponseStatus) => {
         setIsSubmitting(false)
         setIsSubmitted(true)
         setFormState({
@@ -125,8 +125,7 @@ export function ContactSection() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-            {/* FIX 2: Escaped the apostrophe in "Let's" */}
-            Let's Create Something Amazing
+            Let&apos;s Create Something Amazing
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Ready to elevate your brand? Get in touch with our team to discuss your project.
@@ -170,7 +169,7 @@ export function ContactSection() {
                     <p className="text-muted-foreground">
                       Agraphicart
                       <br />
-                      Nanded-431602
+                      Nanded-431602 
                       <br />
                       Maharashtra, India.
                     </p>
@@ -283,8 +282,7 @@ export function ContactSection() {
                   <CheckCircle className="h-16 w-16 text-green-500 mb-4" />
                   <h4 className="text-xl font-bold mb-2">Message Sent!</h4>
                   <p className="text-muted-foreground">
-                    {/* FIX 3: Escaped the apostrophe in "We'll" */}
-                    Thank you for reaching out. We'll get back to you shortly.
+                    Thank you for reaching out. We&apos;ll get back to you shortly.
                   </p>
                 </div>
               ) : (
