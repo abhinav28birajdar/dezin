@@ -15,7 +15,7 @@ import {
 import { Label } from "@/components/ui/label"
 // Added Mail, Phone, MapPin to imports
 import { Send, CheckCircle, AlertCircle, Mail, Phone, MapPin } from "lucide-react"
-import emailjs, { EmailJSResponseStatus } from "@emailjs/browser"
+import emailjs from "@emailjs/browser"
 
 export function ContactSection() {
   const formRef = useRef<HTMLFormElement>(null)
