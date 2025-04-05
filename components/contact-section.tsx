@@ -91,7 +91,7 @@ export function ContactSection() {
 
     emailjs
       .sendForm(emailJsServiceId, emailJsTemplateId, formRef.current)
-      .then((response: EmailJSResponseStatus) => {
+      .then(() => { // Removed the unused 'response' parameter
         setIsSubmitting(false)
         setIsSubmitted(true)
         setFormState({
