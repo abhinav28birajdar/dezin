@@ -400,7 +400,7 @@ export function ContactSection() {
                   {/* Submit Button Styling from first example */}
                   <Button
                     type="submit"
-                    className="w-60 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white" // Added text-white for contrast
+                    className="w-80 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white" // Added text-white for contrast
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
