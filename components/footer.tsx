@@ -41,12 +41,12 @@ export function Footer() {
                 </Link>
               </Button>
               <Button size="icon" variant="ghost" asChild>
-                <Link href="https://www.linkedin.com/in/artynex" aria-label="LinkedIn">
+                <Link href="www.linkedin.com/in/artynex" aria-label="LinkedIn">
                   <Linkedin className="h-5 w-5" />
                 </Link>
               </Button>
               <Button size="icon" variant="ghost" asChild>
-                <Link href="#" aria-label="YouTube">
+                <Link href="https://www.youtube.com/channel/UCOCuX9B9W5izpmO8ecynaQQ" aria-label="YouTube">
                   <Youtube className="h-5 w-5" />
                 </Link>
               </Button>

@@ -200,7 +200,7 @@ export function ContactSection() {
                     </svg>
                   </a>
                   <a
-                    href="#" // Replace with actual social media links
+                    href="https://www.instagram.com/artynexdesign/" // Replace with actual social media links
                     aria-label="Follow us on Instagram" // Added aria-label for accessibility
                     className="h-10 w-10 flex items-center justify-center rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
                   >
@@ -221,7 +221,7 @@ export function ContactSection() {
                     </svg>
                   </a>
                   <a
-                    href="#" // Replace with actual social media links
+                    href="https://www.linkedin.com/in/artynex/" // Replace with actual social media links
                     aria-label="Follow us on LinkedIn" // Added aria-label for accessibility
                     className="h-10 w-10 flex items-center justify-center rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
                   >
@@ -242,7 +242,7 @@ export function ContactSection() {
                     </svg>
                   </a>
                   <a
-                    href="#" // Replace with actual social media links
+                    href="https://x.com/artynexdesign" // Replace with actual social media links
                     aria-label="Follow us on Twitter" // Added aria-label for accessibility
                     className="h-10 w-10 flex items-center justify-center rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
                   >
