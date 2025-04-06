@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Facebook, Instagram, Linkedin, Twitter, Youtube, ArrowRight } from "lucide-react"
+import Image from "next/image"
 
 export function Footer() {
   return (
@@ -9,11 +10,17 @@ export function Footer() {
       <div className="container px-4 md:px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12">
           <div className="space-y-4">
-            <Link href="/" className="inline-block">
-              <span className="font-bold text-2xl bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500">
-                AgraphicArt
-              </span>
-            </Link>
+          <Link href="/" className="flex items-center space-x-4">
+            {/* Replace text with Image component */}
+            <Image 
+              src="/logodesign.png" 
+              alt="Logo" 
+              width={140} 
+              height={140} 
+              className="h-50 w-auto"
+              priority
+            />
+          </Link>
             <p className="text-muted-foreground">
               A leading digital design agency specializing in creative solutions for modern businesses.
             </p>
@@ -24,17 +31,17 @@ export function Footer() {
                 </Link>
               </Button>
               <Button size="icon" variant="ghost" asChild>
-                <Link href="#" aria-label="Instagram">
+                <Link href="https://www.instagram.com/artynexdesign/" aria-label="Instagram">
                   <Instagram className="h-5 w-5" />
                 </Link>
               </Button>
               <Button size="icon" variant="ghost" asChild>
-                <Link href="#" aria-label="Twitter">
+                <Link href="https://x.com/artynexdesign" aria-label="Twitter">
                   <Twitter className="h-5 w-5" />
                 </Link>
               </Button>
               <Button size="icon" variant="ghost" asChild>
-                <Link href="#" aria-label="LinkedIn">
+                <Link href="https://www.linkedin.com/in/artynex" aria-label="LinkedIn">
                   <Linkedin className="h-5 w-5" />
                 </Link>
               </Button>
@@ -147,7 +154,7 @@ export function Footer() {
 
         <div className="border-t mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} AgraphicArt. All rights reserved.
+            &copy; {new Date().getFullYear()} Artynex. All rights reserved.
           </p>
           <div className="flex space-x-4 mt-4 md:mt-0">
             <Link href="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors">

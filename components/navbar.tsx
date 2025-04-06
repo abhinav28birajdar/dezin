@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ModeToggle } from "@/components/mode-toggle"
 import {
@@ -30,158 +31,167 @@ export function Navbar() {
   }, [])
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300",
-        isScrolled ? "bg-background/80 backdrop-blur-md border-b" : "bg-transparent",
-      )}
-    >
-      <div className="container flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center space-x-2">
-          <span className="font-bold text-2xl bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500">
-            AgraphicArt
-          </span>
-        </Link>
+    <div className="fixed top-4 left-6 right-6 z-50 mx-auto">
+      <header
+        className={cn(
+          "rounded-lg transition-all duration-300",
+          isScrolled ? "bg-background/80 backdrop-blur-md border " : "bg-transparent",
+        )}
+      >
+        <div className="container flex h-16 items-center justify-between">
+          <Link href="/" className="flex items-center space-x-4">
+            {/* Replace text with Image component */}
+            <Image 
+              src="/logodesign.png" 
+              alt="Logo" 
+              width={140} 
+              height={140} 
+              className="h-40 w-auto"
+              priority
+            />
+          </Link>
 
-        <div className="hidden md:flex items-center space-x-1">
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <Link href="/" legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>Home</NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>Services</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                    {services.map((service) => (
-                      <ListItem key={service.title} title={service.title} href={service.href}>
-                        {service.description}
+          <div className="hidden md:flex items-center space-x-1">
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <Link href="/" legacyBehavior passHref>
+                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>Home</NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger>Services</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                      {services.map((service) => (
+                        <ListItem key={service.title} title={service.title} href={service.href}>
+                          {service.description}
+                        </ListItem>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Link href="/portfolio" legacyBehavior passHref>
+                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>Portfolio</NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Link href="/team" legacyBehavior passHref>
+                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>Team</NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger>Insights</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                      <ListItem title="Blog" href="/blog">
+                        Latest articles and design trends
                       </ListItem>
-                    ))}
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Link href="/portfolio" legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>Portfolio</NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Link href="/team" legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>Team</NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>Insights</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                    <ListItem title="Blog" href="/blog">
-                      Latest articles and design trends
-                    </ListItem>
-                    <ListItem title="Case Studies" href="/case-studies">
-                      In-depth analysis of our projects
-                    </ListItem>
-                    <ListItem title="Resources" href="/resources">
-                      Free assets, tutorials, and tools
-                    </ListItem>
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Link href="/careers" legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>Careers</NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Link href="/contact" legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>Contact</NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+                      <ListItem title="Case Studies" href="/case-studies">
+                        In-depth analysis of our projects
+                      </ListItem>
+                      <ListItem title="Resources" href="/resources">
+                        Free assets, tutorials, and tools
+                      </ListItem>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Link href="/careers" legacyBehavior passHref>
+                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>Careers</NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Link href="/contact" legacyBehavior passHref>
+                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>Contact</NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
 
-          {/* FIXED Line 107 - Escaped apostrophe in "Let's Talk" */}
-          <Button asChild className="ml-4 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white">
-            <Link href="/contact">Let&apos;s Talk</Link>
-          </Button>
-          <ModeToggle />
-        </div>
+            <Button asChild className="ml-4 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white">
+  <a href="https://discord.gg/jjQSyMCz" target="_blank" rel="noopener noreferrer">
+    Let&apos;s Talk
+  </a>
+</Button>
 
-        <div className="flex md:hidden items-center space-x-4">
-          <ModeToggle />
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle Menu"
-          >
-            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </Button>
-        </div>
-      </div>
+            <ModeToggle />
+          </div>
 
-      {mobileMenuOpen && (
-        <div className="md:hidden">
-          <div className="flex flex-col space-y-4 px-4 py-6 bg-background border-b">
-            <Link
-              href="/"
-              className="px-4 py-2 text-sm font-medium rounded-md hover:bg-accent"
-              onClick={() => setMobileMenuOpen(false)}
+          <div className="flex md:hidden items-center space-x-4">
+            <ModeToggle />
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle Menu"
             >
-              Home
-            </Link>
-            <Link
-              href="/services"
-              className="px-4 py-2 text-sm font-medium rounded-md hover:bg-accent"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Services
-            </Link>
-            <Link
-              href="/portfolio"
-              className="px-4 py-2 text-sm font-medium rounded-md hover:bg-accent"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Portfolio
-            </Link>
-            <Link
-              href="/team"
-              className="px-4 py-2 text-sm font-medium rounded-md hover:bg-accent"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Team
-            </Link>
-            <Link
-              href="/insights"
-              className="px-4 py-2 text-sm font-medium rounded-md hover:bg-accent"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Insights
-            </Link>
-            <Link
-              href="/careers"
-              className="px-4 py-2 text-sm font-medium rounded-md hover:bg-accent"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Careers
-            </Link>
-            <Link
-              href="/contact"
-              className="px-4 py-2 text-sm font-medium rounded-md hover:bg-accent"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Contact
-            </Link>
-            {/* FIXED Line 179 - Escaped apostrophe in "Let's Talk" */}
-            <Button asChild className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white">
-               <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>Let&apos;s Talk</Link>
+              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
           </div>
         </div>
-      )}
-    </header>
+
+        {mobileMenuOpen && (
+          <div className="md:hidden">
+            <div className="flex flex-col space-y-4 px-4 py-6 bg-background border-b rounded-b-lg">
+              <Link
+                href="/"
+                className="px-4 py-2 text-sm font-medium rounded-md hover:bg-accent"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Home
+              </Link>
+              <Link
+                href="/services"
+                className="px-4 py-2 text-sm font-medium rounded-md hover:bg-accent"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Services
+              </Link>
+              <Link
+                href="/portfolio"
+                className="px-4 py-2 text-sm font-medium rounded-md hover:bg-accent"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Portfolio
+              </Link>
+              <Link
+                href="/team"
+                className="px-4 py-2 text-sm font-medium rounded-md hover:bg-accent"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Team
+              </Link>
+              <Link
+                href="/insights"
+                className="px-4 py-2 text-sm font-medium rounded-md hover:bg-accent"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Insights
+              </Link>
+              <Link
+                href="/careers"
+                className="px-4 py-2 text-sm font-medium rounded-md hover:bg-accent"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Careers
+              </Link>
+              <Link
+                href="/contact"
+                className="px-4 py-2 text-sm font-medium rounded-md hover:bg-accent"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Contact
+              </Link>
+              <Button asChild className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white">
+                 <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>Let&apos;s Talk</Link>
+              </Button>
+            </div>
+          </div>
+        )}
+      </header>
+    </div>
   )
 }
 

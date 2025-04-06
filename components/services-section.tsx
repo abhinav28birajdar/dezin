@@ -104,17 +104,20 @@ export function ServicesSection() {
         </div>
 
         <Tabs defaultValue={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid grid-cols-3 md:grid-cols-6 mb-12">
-            {services.map((service) => (
-              <TabsTrigger
-                key={service.id}
-                value={service.id}
-                className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-              >
-                {service.title}
-              </TabsTrigger>
-            ))}
-          </TabsList>
+          {/* Center the tabs with flex layout and justify-center */}
+          <div className="flex justify-center mb-12">
+            <TabsList className="inline-flex bg-muted/80 rounded-lg p-1">
+              {services.map((service) => (
+                <TabsTrigger
+                  key={service.id}
+                  value={service.id}
+                  className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground px-4 py-2"
+                >
+                  {service.title}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </div>
 
           {services.map((service) => (
             <TabsContent key={service.id} value={service.id}>
@@ -179,4 +182,3 @@ export function ServicesSection() {
     </section>
   )
 }
-

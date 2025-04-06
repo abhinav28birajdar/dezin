@@ -6,11 +6,10 @@ import { motion } from "framer-motion";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Environment, Float } from "@react-three/drei";
 import Link from "next/link";
-import * as THREE from 'three'; // Import THREE namespace
+import * as THREE from 'three';
 
-// Define props type for animated components
 interface AnimatedShapeProps {
-  position?: [number, number, number]; // Explicitly type position as a tuple
+  position?: [number, number, number]; 
   color?: string;
 }
 
@@ -56,6 +55,24 @@ function AnimatedTorus({ position = [0, 0, 0], color = "#0070f3" }: AnimatedShap
   );
 }
 
+function AnimatedTriangle({ position = [0, 0, 0], color = "#50c878" }: AnimatedShapeProps) {
+  const meshRef = useRef<THREE.Mesh>(null);
+
+  useFrame((state, delta) => {
+    if (meshRef.current) {
+      meshRef.current.rotation.x += delta * 0.3;
+      meshRef.current.rotation.z += delta * 0.2;
+    }
+  });
+
+  return (
+    <mesh ref={meshRef} position={position}>
+      <tetrahedronGeometry args={[1, 0]} />
+      <meshStandardMaterial color={color} roughness={0.4} metalness={0.6} />
+    </mesh>
+  );
+}
+
 export function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
@@ -71,7 +88,8 @@ export function HeroSection() {
             <AnimatedTorus position={[4, -1, -1]} color="#0070f3" />
             <AnimatedSphere position={[5, 2, -5]} color="#7928ca" />
             <AnimatedTorus position={[-2, -2, -3]} color="#ff4d4d" />
-          
+            <AnimatedTriangle position={[0, 3, -2]} color="#50c878" />
+            <AnimatedTriangle position={[2, -2, -2]} color="#50c878" />
           </Float>
           <Environment preset="city" />
         </Canvas>

@@ -24,7 +24,7 @@ const testimonials = [
     avatar: "/placeholder.svg?height=100&width=100", // Replace with actual path or remove if not used
     logo: "/placeholder-logo.svg", // Replace with actual path or remove if not used
     content:
-      "Working with AgraphicArt transformed our brand identity. Their team understood our vision perfectly and delivered beyond our expectations. The new design system has significantly improved our brand recognition.",
+      "Working with Artynex transformed our brand identity. Their team understood our vision perfectly and delivered beyond our expectations. The new design system has significantly improved our brand recognition.",
     rating: 5,
   },
   {
@@ -35,7 +35,7 @@ const testimonials = [
     avatar: "/placeholder.svg?height=100&width=100", // Replace with actual path
     logo: "/placeholder-logo.svg", // Replace with actual path
     content:
-      "The UI/UX redesign of our app resulted in a 45% increase in user engagement. AgraphicArt's approach to user-centered design and their attention to detail made all the difference.",
+      "The UI/UX redesign of our app resulted in a 45% increase in user engagement. Artynex approach to user-centered design and their attention to detail made all the difference.",
     rating: 5,
   },
   {
@@ -46,7 +46,7 @@ const testimonials = [
     avatar: "/placeholder.svg?height=100&width=100", // Replace with actual path
     logo: "/placeholder-logo.svg", // Replace with actual path
     content:
-      "The motion graphics campaign created by AgraphicArt helped us launch our product with a bang. The animations were stunning and perfectly captured the essence of our brand.",
+      "The motion graphics campaign created by Artynex helped us launch our product with a bang. The animations were stunning and perfectly captured the essence of our brand.",
     rating: 5,
   },
   {
@@ -57,7 +57,7 @@ const testimonials = [
     avatar: "/placeholder.svg?height=100&width=100", // Replace with actual path
     logo: "/placeholder-logo.svg", // Replace with actual path
     content:
-      "AgraphicArt's branding work helped us stand out in a crowded market. Their strategic approach to visual identity has been instrumental in our recent growth.",
+      "Artynex branding work helped us stand out in a crowded market. Their strategic approach to visual identity has been instrumental in our recent growth.",
     rating: 4,
   },
   {
@@ -68,7 +68,7 @@ const testimonials = [
     avatar: "/placeholder.svg?height=100&width=100", // Replace with actual path
     logo: "/placeholder-logo.svg", // Replace with actual path
     content:
-      "The AR experience designed by AgraphicArt for our exhibition was nothing short of revolutionary. Our visitors were amazed, and it generated significant press coverage.",
+      "The AR experience designed by Artynex for our exhibition was nothing short of revolutionary. Our visitors were amazed, and it generated significant press coverage.",
     rating: 5,
   },
 ]

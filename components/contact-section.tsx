@@ -148,8 +148,8 @@ export function ContactSection() {
                   <Mail className="h-6 w-6 mr-4 text-primary flex-shrink-0 mt-1" /> {/* Added flex-shrink-0 and mt-1 for alignment */}
                   <div>
                     <h4 className="font-medium">Email Us</h4>
-                    <p className="text-muted-foreground">hello@agraphicart.com</p>
-                    <p className="text-muted-foreground">support@agraphicart.com</p>
+                    <p className="text-muted-foreground">hello@Artynex.com</p>
+                    <p className="text-muted-foreground">support@Artynex.com</p>
                   </div>
                 </div>
 
@@ -167,7 +167,7 @@ export function ContactSection() {
                   <div>
                     <h4 className="font-medium">Visit Us</h4>
                     <p className="text-muted-foreground">
-                      Agraphicart
+                    Artynex
                       <br />
                       Nanded-431602 
                       <br />
@@ -377,9 +377,7 @@ export function ContactSection() {
                         <SelectItem value="other">Other</SelectItem>
                       </SelectContent>
                     </Select>
-                     {/* Keep the hidden input for emailjs if Select doesn't submit directly */}
-                     {/* It might be redundant if emailjs picks up the Select's name attribute */}
-                     {/* Test to confirm if this hidden input is still needed */}
+                  
                     <input type="hidden" name={emailJsFieldNames.service} value={formState.service} />
                   </div>
 
@@ -396,17 +394,15 @@ export function ContactSection() {
                       aria-required="true"
                     />
                   </div>
-
-                  {/* Submit Button Styling from first example */}
                   <Button
                     type="submit"
                     className="w-80 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white" // Added text-white for contrast
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
-                      <span className="flex items-center justify-center"> {/* Added justify-center */}
+                      <span className="flex items-center justify-center"> 
                         <svg
-                          className="animate-spin -ml-1 mr-3 h-5 w-5" // Removed text-white as parent has it
+                          className="animate-spin -ml-1 mr-3 h-5 w-5" 
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
@@ -428,7 +424,7 @@ export function ContactSection() {
                         Sending...
                       </span>
                     ) : (
-                      <span className="flex items-center justify-center"> {/* Added justify-center */}
+                      <span className="flex items-center justify-center">
                         <Send className="mr-2 h-4 w-4" />
                         Send Message
                       </span>
@@ -438,7 +434,6 @@ export function ContactSection() {
               )}
             </div>
           </motion.div>
-          {/* --- End: Form Section --- */}
         </div>
       </div>
     </section>
