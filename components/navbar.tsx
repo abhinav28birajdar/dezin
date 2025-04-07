@@ -19,19 +19,40 @@ import { Menu, X } from "lucide-react"
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [visible, setVisible] = useState(true)
+  const [lastScrollY, setLastScrollY] = useState(0)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
+      const currentScrollY = window.scrollY
+
+      // Determine if scrolled for background change
+      setIsScrolled(currentScrollY > 10)
+
+      // Show/hide based on scroll direction
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down & past threshold
+        setVisible(false)
+      } else {
+        // Scrolling up
+        setVisible(true)
+      }
+
+      setLastScrollY(currentScrollY)
     }
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  }, [lastScrollY])
 
   return (
-    <div className="fixed top-4 left-6 right-6 z-50 mx-auto">
+    <div 
+      className={cn(
+        "fixed top-4 left-6 right-6 z-50 mx-auto transition-transform duration-300",
+        visible ? "translate-y-0" : "-translate-y-full"
+      )}
+    >
       <header
         className={cn(
           "rounded-lg transition-all duration-300",
@@ -111,10 +132,10 @@ export function Navbar() {
             </NavigationMenu>
 
             <Button asChild className="ml-4 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white">
-  <a href="https://discord.gg/jjQSyMCz" target="_blank" rel="noopener noreferrer">
-    Let&apos;s Talk
-  </a>
-</Button>
+              <a href="https://discord.gg/jjQSyMCz" target="_blank" rel="noopener noreferrer">
+                Let&apos;s Talk
+              </a>
+            </Button>
 
             <ModeToggle />
           </div>
@@ -185,7 +206,7 @@ export function Navbar() {
                 Contact
               </Link>
               <Button asChild className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white">
-                 <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>Let&apos;s Talk</Link>
+                <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>Let&apos;s Talk</Link>
               </Button>
             </div>
           </div>
@@ -203,12 +224,12 @@ const services = [
   },
   {
     title: "UI/UX Design",
-    href: "/services/ui-ux-design",
+    href: "/services/uiuxdesign",
     description: "User-centered design solutions for web and mobile applications",
   },
   {
     title: "Branding",
-    href: "/services/branding",
+    href: "/services/Branding",
     description: "Comprehensive branding strategies and visual identity systems",
   },
   {
@@ -222,9 +243,9 @@ const services = [
     description: "Immersive experiences for augmented and virtual reality",
   },
   {
-    title: "Sound Design",
+    title: "Event Design",
     href: "/services/sound-design",
-    description: "Audio production and sound design for multimedia projects",
+    description: "Transforming spaces and moments into unforgettable events.",
   },
 ]
 

@@ -15,7 +15,7 @@ const insights = [
     excerpt: "Explore emerging UI design trends that will shape the digital landscape in the coming year.",
     category: "Design Trends",
     date: "April 2, 2025",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/futuristic.jpeg?height=400&width=600",
     link: "/insights/ui-design-trends-2025",
   },
   {
@@ -24,7 +24,7 @@ const insights = [
     excerpt: "Discover how augmented reality is revolutionizing the way consumers interact with products and brands.",
     category: "AR/VR",
     date: "March 28, 2025",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/AR.jpeg?height=400&width=600",
     link: "/insights/ar-retail-experience",
   },
   {
@@ -33,7 +33,7 @@ const insights = [
     excerpt: "Understanding how color choices influence consumer perception and brand recognition.",
     category: "Branding",
     date: "March 15, 2025",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/colorful.jpeg?height=400&width=600",
     link: "/insights/psychology-color-branding",
   },
 ]

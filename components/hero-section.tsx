@@ -84,10 +84,10 @@ export function HeroSection() {
           {/* The <Float> error might resolve with the above fixes.
               If it persists, check library versions (fiber, drei, three, @types/three). */}
           <Float speed={2} rotationIntensity={1} floatIntensity={1}>
-            <AnimatedSphere position={[-3, 1, -2]} color="#ff49db" />
+            <AnimatedSphere position={[-3, 1, -2]} color="#7928ca" />
             <AnimatedTorus position={[4, -1, -1]} color="#0070f3" />
-            <AnimatedSphere position={[5, 2, -5]} color="#7928ca" />
-            <AnimatedTorus position={[-2, -2, -3]} color="#ff4d4d" />
+            <AnimatedSphere position={[5, 2, -5]} color="#ff49db" />
+            {/* <AnimatedTorus position={[-2, -2, -3]} color="#ff4d4d" /> */}
             <AnimatedTriangle position={[0, 3, -2]} color="#50c878" />
             <AnimatedTriangle position={[2, -2, -2]} color="#50c878" />
           </Float>
@@ -96,7 +96,7 @@ export function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto h-full flex flex-col justify-center items-start px-4 md:px-6">
+      <div className="relative z-10 container mx-12 h-full flex flex-col justify-center items-start px-5 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

@@ -16,7 +16,7 @@ const portfolioItems = [
     title: "Eco Brand Identity",
     category: "Branding",
     tags: ["Logo Design", "Packaging", "Brand Guidelines"],
-    image: "/placeholder.svg?height=600&width=800",
+    image: "/ecofriend.jpeg?height=600&width=800",
     link: "/portfolio/eco-brand-identity",
   },
   {
@@ -24,7 +24,7 @@ const portfolioItems = [
     title: "Finance App UX Design",
     category: "UI/UX",
     tags: ["Mobile App", "User Research", "Prototyping"],
-    image: "/Frame1.png?height=600&width=800",
+    image: "/mobileuiux.jpeg?height=600&width=800",
     link: "https://www.figma.com/design/LLUfJ30unjRPO7L4ML9GXt/women-safety?node-id=0-1&t=8UPITAt8sxl6eASW-1",
   },
   {
@@ -32,7 +32,7 @@ const portfolioItems = [
     title: "Product Launch Campaign",
     category: "Motion",
     tags: ["Animation", "Social Media", "Video"],
-    image: "/placeholder.svg?height=600&width=800",
+    image: "/motion graphic.jpeg?height=600&width=800",
     link: "/portfolio/product-launch",
   },
   {
@@ -40,7 +40,7 @@ const portfolioItems = [
     title: "Virtual Reality Experience",
     category: "AR/VR",
     tags: ["VR", "3D Modeling", "Interactive"],
-    image: "/placeholder.svg?height=600&width=800",
+    image: "/Virtual Reality.jpeg?height=600&width=800",
     link: "/portfolio/vr-experience",
   },
   {
@@ -48,7 +48,7 @@ const portfolioItems = [
     title: "Corporate Identity System",
     category: "Branding",
     tags: ["Logo", "Stationery", "Guidelines"],
-    image: "/placeholder.svg?height=600&width=800",
+    image: "/Corporate.jpeg?height=600&width=800",
     link: "/portfolio/corporate-identity",
   },
   {
@@ -56,7 +56,7 @@ const portfolioItems = [
     title: "E-commerce Website Redesign",
     category: "UI/UX",
     tags: ["Web Design", "UX Research", "Conversion"],
-    image: "/placeholder.svg?height=600&width=800",
+    image: "/E-commerce Website.jpeg?height=600&width=800",
     link: "/portfolio/ecommerce-redesign",
   },
 ]

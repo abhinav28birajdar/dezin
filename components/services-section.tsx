@@ -2,11 +2,12 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Palette, Layers, Briefcase, Film, Headphones, Glasses, ChevronRight } from "lucide-react"
+import { Palette, Layers, Briefcase, Film, Headphones, Glasses, ChevronRight, CalendarDays } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Link from "next/link"
+import Image from "next/image"
 
 const services = [
   {
@@ -18,6 +19,7 @@ const services = [
     caseStudy: {
       title: "Revitalizing Eco Brand",
       description: "How we transformed a sustainable product line with cohesive visual identity.",
+      imageUrl: "/graphicdesign.jpeg", // Add your image path here
     },
   },
   {
@@ -35,6 +37,7 @@ const services = [
     caseStudy: {
       title: "Fintech App Redesign",
       description: "Increasing user engagement by 45% through intuitive interface design.",
+      imageUrl: "/uiuxdesign.jpeg", // Add your image path here
     },
   },
   {
@@ -46,6 +49,7 @@ const services = [
     caseStudy: {
       title: "Tech Startup Branding",
       description: "Creating a distinctive identity in a crowded market space.",
+      imageUrl: "/Branding.png", // Add your image path here
     },
   },
   {
@@ -57,30 +61,40 @@ const services = [
     caseStudy: {
       title: "Product Launch Campaign",
       description: "Driving 2M+ views with compelling animated content.",
+      imageUrl: "/motiongraphic.jpeg", // Add your image path here
     },
   },
-  {
-    id: "sound",
-    title: "Sound Design",
-    description: "Audio production and sound design that enhances the emotional impact of your visual content.",
-    icon: <Headphones className="h-10 w-10" />,
-    features: ["Audio Branding", "Sound Effects", "Music Production", "Voice Over Direction", "Audio Post-Production"],
-    caseStudy: {
-      title: "Immersive Exhibition",
-      description: "Creating a multi-sensory experience through strategic sound design.",
-    },
-  },
-  {
-    id: "ar-vr",
-    title: "AR/VR Design",
-    description: "Immersive experiences that push boundaries and create memorable interactions with your audience.",
-    icon: <Glasses className="h-10 w-10" />,
-    features: ["AR Applications", "VR Experiences", "3D Modeling", "Interactive Installations", "Spatial Design"],
-    caseStudy: {
-      title: "Virtual Showroom",
-      description: "Revolutionizing product demonstrations with immersive VR technology.",
-    },
-  },
+{
+  id: "event",
+  title: "Cultural Event Design",
+  description: "Curating memorable cultural experiences through creative themes, engaging visuals, and seamless execution.",
+  icon: <CalendarDays className="h-10 w-10" />, // Optional: Replace icon to better match event design
+  features: [
+    "Theme Development",
+    "Stage & Venue Design",
+    "Visual Identity & Decor",
+    "Event Flow & Scheduling",
+    "Artist & Performance Coordination"
+  ],
+  caseStudy: {
+    title: "Festive Campus Carnival",
+    description: "Designed a vibrant cultural fest with captivating themes, dynamic performances, and cohesive branding.",
+    imageUrl: "/eventdesign.jpeg", // Replace with your relevant image path
+  }
+}
+
+  // {
+  //   id: "ar-vr",
+  //   title: "AR/VR Design",
+  //   description: "Immersive experiences that push boundaries and create memorable interactions with your audience.",
+  //   icon: <Glasses className="h-10 w-10" />,
+  //   features: ["AR Applications", "VR Experiences", "3D Modeling", "Interactive Installations", "Spatial Design"],
+  //   caseStudy: {
+  //     title: "Virtual Showroom",
+  //     description: "Revolutionizing product demonstrations with immersive VR technology.",
+  //     imageUrl: "/images/case-studies/ar-vr-case.jpg", // Add your image path here
+  //   },
+  // },
 ]
 
 export function ServicesSection() {
@@ -159,10 +173,19 @@ export function ServicesSection() {
                       <CardDescription>Featured work</CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <div className="aspect-video bg-muted rounded-md mb-4 overflow-hidden">
-                        <div className="w-full h-full bg-gradient-to-br from-primary/20 to-primary/40 flex items-center justify-center">
-                          {service.icon}
-                        </div>
+                      <div className="aspect-video bg-muted rounded-md mb-4 overflow-hidden relative">
+                        {service.caseStudy.imageUrl ? (
+                          <Image 
+                            src={service.caseStudy.imageUrl} 
+                            alt={`${service.title} case study`} 
+                            fill
+                            className="object-cover"
+                          />
+                        ) : (
+                          <div className="w-full h-full bg-gradient-to-br from-primary/20 to-primary/40 flex items-center justify-center">
+                            {service.icon}
+                          </div>
+                        )}
                       </div>
                       <h4 className="text-xl font-semibold mb-2">{service.caseStudy.title}</h4>
                       <p className="text-muted-foreground">{service.caseStudy.description}</p>
