@@ -8,7 +8,7 @@ export default function MotionGraphicsPage() {
     <div>
       <Link href="/">
         <div>
-          <PageHeader title={""} />
+          <PageHeader  />
         </div>
       </Link>
 

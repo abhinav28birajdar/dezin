@@ -8,7 +8,7 @@ export default function CareersPage() {
     <div>
       <Link href="/">
         <div>
-          <PageHeader title="Careers" />
+          <PageHeader />
         </div>
       </Link>
       

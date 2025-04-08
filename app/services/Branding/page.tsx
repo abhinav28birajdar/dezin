@@ -8,7 +8,7 @@ export default function BrandingPage() {
     <div>
       <Link href="/">
         <div>
-          <PageHeader title="AR/VR Design" />
+          <PageHeader />
         </div>
       </Link>
 

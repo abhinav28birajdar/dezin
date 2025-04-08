@@ -8,7 +8,7 @@ export default function AboutPage() {
     <div>
       <Link href="/">
         <div>
-          <PageHeader title="AR/VR Design" />
+          <PageHeader  />
         </div>
       </Link>
 
