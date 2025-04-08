@@ -19,7 +19,7 @@ export function Footer() {
             </p>
             <div className="flex space-x-4">
               <Button size="icon" variant="ghost" asChild>
-                <Link href="#" aria-label="Facebook">
+                <Link href="https://www.facebook.com/artunexdesign/" aria-label="Facebook">
                   <Facebook className="h-5 w-5" />
                 </Link>
               </Button>

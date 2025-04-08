@@ -238,7 +238,7 @@ export function ContactSection() {
                 <h4 className="font-medium mb-4">Follow Us</h4>
                 <div className="flex space-x-4">
                   <a
-                    href="#"
+                    href="https://www.facebook.com/artunexdesign/"
                     aria-label="Follow us on Facebook"
                     className="h-10 w-10 flex items-center justify-center rounded-full bg-zinc-800 hover:bg-purple-500 transition-colors"
                   >
