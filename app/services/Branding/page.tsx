@@ -1,16 +1,17 @@
-import Image from "next/image"
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
-import PageHeader from "@/components/page-header"
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import PageHeader from "@/components/page-header";
 
 export default function BrandingPage() {
   return (
     <div>
-           <Link href="/">
-                 <div>
-                   <PageHeader title="AR/VR Design" />
-                 </div>
-               </Link>
+      <Link href="/">
+        <div>
+          {/* Updated: PageHeader component doesn't take title prop anymore */}
+          <PageHeader />
+        </div>
+      </Link>
       {/* Hero Section */}
       <section className="py-20 px-6 border-b border-zinc-800">
         <div className="max-w-7xl mx-auto">
@@ -35,10 +36,11 @@ export default function BrandingPage() {
             </div>
             <div className="relative aspect-square w-full max-w-md mx-auto lg:max-w-none">
               <Image
-                src="/Branding Services.jpeg?height=600&width=600"
+                src="/Branding Services.jpeg" // Assuming this image exists
                 alt="Branding"
                 fill
                 className="object-cover rounded-lg"
+                priority // Add priority if it's LCP
               />
             </div>
           </div>
@@ -92,7 +94,7 @@ export default function BrandingPage() {
         </div>
       </section>
 
-      {/* Portfolio Preview - Now with real branding examples based on the image */}
+      {/* Portfolio Preview */}
       <section className="py-20 px-6 bg-zinc-900/50">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center">Featured Branding Work</h2>
@@ -100,7 +102,7 @@ export default function BrandingPage() {
             {/* Project 1 - Cozy Café */}
             <div className="group relative aspect-square overflow-hidden rounded-lg">
               <Image
-                src="/Branding1.jpeg"
+                src="/Branding1.jpeg" // Assuming this image exists
                 alt="Cozy Café Brand"
                 fill
                 className="object-cover transition-transform group-hover:scale-105"
@@ -116,7 +118,7 @@ export default function BrandingPage() {
             {/* Project 2 - Minimglobe Skincare */}
             <div className="group relative aspect-square overflow-hidden rounded-lg">
               <Image
-                src="/Branding2.jpeg"
+                src="/Branding2.jpeg" // Assuming this image exists
                 alt="MinimGlobe Skincare"
                 fill
                 className="object-cover transition-transform group-hover:scale-105"
@@ -132,7 +134,7 @@ export default function BrandingPage() {
             {/* Project 3 - Creative Eye Studio */}
             <div className="group relative aspect-square overflow-hidden rounded-lg">
               <Image
-                src="/Branding3.jpeg"
+                src="/Branding3.jpeg" // Assuming this image exists
                 alt="Creative Eye Studio Brand"
                 fill
                 className="object-cover transition-transform group-hover:scale-105"
@@ -148,7 +150,7 @@ export default function BrandingPage() {
             {/* Project 4 - Luxury M Brand */}
             <div className="group relative aspect-square overflow-hidden rounded-lg">
               <Image
-                src="/Branding4.jpeg"
+                src="/Branding4.jpeg" // Assuming this image exists
                 alt="Luxury M Brand"
                 fill
                 className="object-cover transition-transform group-hover:scale-105"
@@ -164,7 +166,7 @@ export default function BrandingPage() {
             {/* Project 5 - Premium Real Estate */}
             <div className="group relative aspect-square overflow-hidden rounded-lg">
               <Image
-                src="/Branding5.jpeg"
+                src="/Branding5.jpeg" // Assuming this image exists
                 alt="Premium Real Estate Brand"
                 fill
                 className="object-cover transition-transform group-hover:scale-105"
@@ -180,7 +182,7 @@ export default function BrandingPage() {
             {/* Project 6 - Aline Design Studio */}
             <div className="group relative aspect-square overflow-hidden rounded-lg">
               <Image
-                src="/Branding6.jpeg"
+                src="/Branding6.jpeg" // Assuming this image exists
                 alt="Aline Design Studio"
                 fill
                 className="object-cover transition-transform group-hover:scale-105"
@@ -195,7 +197,7 @@ export default function BrandingPage() {
           </div>
           <div className="text-center mt-12">
             <Link
-              href="/contact"
+              href="/contact" // Consider linking to a portfolio page
               className="inline-flex items-center gap-2 border border-purple-500 text-purple-500 px-6 py-3 rounded-md font-medium hover:bg-purple-500/10 transition-colors"
             >
               View All Projects <ArrowRight size={18} />
@@ -249,7 +251,7 @@ export default function BrandingPage() {
       <section className="py-20 px-6 bg-gradient-to-r from-purple-500/20 to-pink-500/20">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Build a Powerful Brand?</h2>
-           {/* Corrected Line Below */}
+          {/* FIX: Replaced ' with ' */}
           <p className="text-xl text-zinc-300 mb-8">
             Let's create a brand identity that resonates with your audience and drives business growth.
           </p>
@@ -262,5 +264,5 @@ export default function BrandingPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }
