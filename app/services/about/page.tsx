@@ -33,7 +33,7 @@ export default function AboutPage() {
             </div>
             <div className="relative aspect-square w-full max-w-md mx-auto lg:max-w-none">
               <Image
-                src="/aboutimage.png?height=600&width=600"
+                src="/abouth?height=600&width=600"
                 alt="About Us"
                 fill
                 className="object-cover rounded-lg"
