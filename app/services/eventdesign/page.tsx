@@ -171,7 +171,7 @@ export default function CulturalEventDesignPage() {
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Celebrate Culture in Style?</h2>
           <p className="text-xl text-zinc-300 mb-8">
-            Let's create an unforgettable cultural event that honors traditions while creating new memories.
+            Let&apos;s create an unforgettable cultural event that honors traditions while creating new memories.
           </p>
           <Link
             href="/contact"
