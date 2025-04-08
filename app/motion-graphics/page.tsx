@@ -1,11 +1,17 @@
-import Image from "next/image"
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
-import React from "react"
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import PageHeader from "@/components/page-header";
 
 export default function MotionGraphicsPage() {
   return (
     <div>
+      <Link href="/">
+        <div>
+          <PageHeader title={""} />
+        </div>
+      </Link>
+
       {/* Hero Section */}
       <section className="py-20 px-6 border-b border-zinc-800">
         <div className="max-w-7xl mx-auto">
@@ -14,8 +20,7 @@ export default function MotionGraphicsPage() {
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-white">Motion</span>
                 <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
-                  {" "}
-                  Graphics
+                  {" "}Graphics
                 </span>
               </h1>
               <p className="text-xl text-zinc-400 mb-8">
@@ -35,8 +40,66 @@ export default function MotionGraphicsPage() {
                 alt="Motion Graphics"
                 fill
                 className="object-cover rounded-lg"
+                priority
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Team Members Section */}
+      <section className="py-20 px-6 bg-zinc-900/30">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold mb-4 text-center">Our Motion Team</h2>
+          <p className="text-zinc-400 text-center max-w-2xl mx-auto mb-12">
+            Meet the creative minds behind our stunning motion graphics and animations.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                name: "Emily Rodriguez",
+                role: "Motion Director",
+                bio: "Expert in storytelling through animation with 8+ years experience in the industry.",
+                image: "/placeholder.svg?height=400&width=400",
+              },
+              {
+                name: "Kai Zhang",
+                role: "2D Animator",
+                bio: "Specializes in character animation and fluid motion design for brands.",
+                image: "/placeholder.svg?height=400&width=400",
+              },
+              {
+                name: "Nadia Patel",
+                role: "3D Animation Lead",
+                bio: "Creates immersive 3D animations that push creative boundaries.",
+                image: "/placeholder.svg?height=400&width=400",
+              },
+              {
+                name: "Marcus Taylor",
+                role: "Motion Graphics Artist",
+                bio: "Transforms concepts into engaging animated content for digital platforms.",
+                image: "/placeholder.svg?height=400&width=400",
+              },
+            ].map((member, index) => (
+              <div key={index} className="group relative overflow-hidden rounded-lg">
+                <div className="aspect-square relative">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-100" />
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-4 transition-all duration-300">
+                  <h3 className="text-lg font-semibold text-white">{member.name}</h3>
+                  <p className="text-purple-400 mb-2">{member.role}</p>
+                  <p className="text-zinc-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {member.bio}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -72,10 +135,7 @@ export default function MotionGraphicsPage() {
                 description: "Data visualizations and information presented in an engaging animated format.",
               },
             ].map((service, index) => (
-              <div
-                key={index}
-                className="p-6 border border-zinc-800 rounded-lg hover:border-purple-500 transition-colors"
-              >
+              <div key={index} className="p-6 border border-zinc-800 rounded-lg hover:border-purple-500 transition-colors">
                 <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
                 <p className="text-zinc-400">{service.description}</p>
               </div>
@@ -169,7 +229,7 @@ export default function MotionGraphicsPage() {
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Bring Your Ideas to Life?</h2>
           <p className="text-xl text-zinc-300 mb-8">
-            Let's create animations that engage your audience and communicate your message effectively.
+            Let&rsquo;s create animations that engage your audience and communicate your message effectively.
           </p>
           <Link
             href="/contact"
@@ -180,6 +240,5 @@ export default function MotionGraphicsPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }
-

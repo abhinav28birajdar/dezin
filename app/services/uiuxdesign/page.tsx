@@ -8,9 +8,10 @@ export default function UiUxDesignPage() {
     <div>
       <Link href="/">
         <div>
-          <PageHeader title="AR/VR Design" />
+          <PageHeader  />
         </div>
       </Link>
+
       {/* Hero Section */}
       <section className="py-20 px-6 border-b border-zinc-800">
         <div className="max-w-7xl mx-auto">
@@ -19,8 +20,7 @@ export default function UiUxDesignPage() {
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-white">UI/UX</span>
                 <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
-                  {" "}
-                  Design
+                  {" "}Design
                 </span>
               </h1>
               <p className="text-xl text-zinc-400 mb-8">
@@ -76,7 +76,7 @@ export default function UiUxDesignPage() {
               {
                 icon: <Users className="h-8 w-8 text-purple-500" />,
                 title: "User Research",
-                description: "In-depth research to understand your users' needs, behaviors, and pain points.",
+                description: "In-depth research to understand your users&#39; needs, behaviors, and pain points.",
               },
               {
                 icon: <Zap className="h-8 w-8 text-purple-500" />,
@@ -176,74 +176,52 @@ export default function UiUxDesignPage() {
         </div>
       </section>
 
-      {/* Portfolio Preview - Now with individual image components */}
+      {/* Portfolio Section */}
       <section className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center">Featured Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Project 1 */}
-            <div className="group relative aspect-video overflow-hidden rounded-lg">
-              <Image
-                src="/ui ux desig1.jpeg"
-                alt="Finance Dashboard App"
-                fill
-                className="object-cover transition-transform group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Finance Dashboard App</h3>
-                  <p className="text-zinc-300">Mobile app redesign for a fintech company</p>
+            {[
+              {
+                src: "/ui ux desig1.jpeg",
+                alt: "Finance Dashboard App",
+                title: "Finance Dashboard App",
+                desc: "Mobile app redesign for a fintech company",
+              },
+              {
+                src: "/ui ux desig2.jpeg",
+                alt: "E-commerce Website",
+                title: "E-commerce Website",
+                desc: "Full redesign of an online fashion retailer",
+              },
+              {
+                src: "/ui ux desig3.jpeg",
+                alt: "Health & Fitness App",
+                title: "Health & Fitness App",
+                desc: "Workout tracking app with personalized recommendations",
+              },
+              {
+                src: "/ui ux desig4.jpeg",
+                alt: "Travel Booking Platform",
+                title: "Travel Booking Platform",
+                desc: "User experience redesign for vacation rental bookings",
+              },
+            ].map((project, idx) => (
+              <div key={idx} className="group relative aspect-video overflow-hidden rounded-lg">
+                <Image
+                  src={project.src}
+                  alt={project.alt}
+                  fill
+                  className="object-cover transition-transform group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                    <p className="text-zinc-300">{project.desc}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            {/* Project 2 */}
-            <div className="group relative aspect-video overflow-hidden rounded-lg">
-              <Image
-                src="/ui ux desig2.jpeg"
-                alt="E-commerce Website"
-                fill
-                className="object-cover transition-transform group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">E-commerce Website</h3>
-                  <p className="text-zinc-300">Full redesign of an online fashion retailer</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Project 3 */}
-            <div className="group relative aspect-video overflow-hidden rounded-lg">
-              <Image
-                src="/ui ux desig3.jpeg"
-                alt="Health & Fitness App"
-                fill
-                className="object-cover transition-transform group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Health & Fitness App</h3>
-                  <p className="text-zinc-300">Workout tracking app with personalized recommendations</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Project 4 */}
-            <div className="group relative aspect-video overflow-hidden rounded-lg">
-              <Image
-                src="/ui ux desig4.jpeg"
-                alt="Travel Booking Platform"
-                fill
-                className="object-cover transition-transform group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Travel Booking Platform</h3>
-                  <p className="text-zinc-300">User experience redesign for vacation rental bookings</p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
           <div className="text-center mt-12">
             <Link
@@ -253,20 +231,6 @@ export default function UiUxDesignPage() {
               View All Projects <ArrowRight size={18} />
             </Link>
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 px-6 bg-gradient-to-r from-purple-500/20 to-pink-500/20">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Create an Exceptional User Experience?</h2>
-          <p className="text-xl text-zinc-300 mb-8">Let's design digital products that your users will love.</p>
-          <Link
-            href="/services/contact"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-4 rounded-md font-medium hover:opacity-90 transition-opacity"
-          >
-            Get in Touch <ArrowRight size={18} />
-          </Link>
         </div>
       </section>
     </div>

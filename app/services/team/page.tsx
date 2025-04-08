@@ -6,11 +6,12 @@ import PageHeader from "@/components/page-header"
 export default function TeamPage() {
   return (
     <div>
-       <Link href="/">
+      <Link href="/">
         <div>
-          <PageHeader title="AR/VR Design" />
+          <PageHeader  />
         </div>
       </Link>
+
       {/* Hero Section */}
       <section className="py-20 px-6 border-b border-zinc-800">
         <div className="max-w-7xl mx-auto">
@@ -104,7 +105,7 @@ export default function TeamPage() {
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Join Our Team</h2>
           <p className="text-xl text-zinc-300 mb-8">
-            We're always looking for talented individuals who are passionate about design and technology.
+            We&apos;re always looking for talented individuals who are passionate about design and technology.
           </p>
           <Link
             href="/careers"
@@ -117,4 +118,3 @@ export default function TeamPage() {
     </div>
   )
 }
-

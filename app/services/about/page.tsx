@@ -6,11 +6,12 @@ import PageHeader from "@/components/page-header"
 export default function AboutPage() {
   return (
     <div>
-           <Link href="/">
-                 <div>
-                   <PageHeader title="AR/VR Design" />
-                 </div>
-               </Link>
+      <Link href="/">
+        <div>
+          <PageHeader title="AR/VR Design" />
+        </div>
+      </Link>
+
       {/* Hero Section */}
       <section className="py-20 px-6 border-b border-zinc-800">
         <div className="max-w-7xl mx-auto">
@@ -33,7 +34,7 @@ export default function AboutPage() {
             </div>
             <div className="relative aspect-square w-full max-w-md mx-auto lg:max-w-none">
               <Image
-                src="/abouth?height=600&width=600"
+                src="/aboutheader.jpeg?height=600&width=600"
                 alt="About Us"
                 fill
                 className="object-cover rounded-lg"
@@ -65,11 +66,11 @@ export default function AboutPage() {
                   create digital experiences that not only look beautiful but also drive real results for our clients.
                 </p>
                 <p>
-                  Over the years, we've grown into a full-service design studio with expertise across multiple
+                  Over the years, we&apos;ve grown into a full-service design studio with expertise across multiple
                   disciplines, from graphic design and branding to motion graphics and immersive AR/VR experiences.
                 </p>
                 <p>
-                  What sets us apart is our commitment to blending creativity with strategy. We don't just create
+                  What sets us apart is our commitment to blending creativity with strategy. We don&apos;t just create
                   visually stunning designs; we create solutions that help our clients achieve their business goals and
                   connect with their audiences in meaningful ways.
                 </p>
@@ -160,7 +161,7 @@ export default function AboutPage() {
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Work Together?</h2>
           <p className="text-xl text-zinc-300 mb-8">
-            Let's create something amazing that exceeds your expectations and achieves your goals.
+            Let&apos;s create something amazing that exceeds your expectations and achieves your goals.
           </p>
           <Link
             href="/contact"
@@ -173,4 +174,3 @@ export default function AboutPage() {
     </div>
   )
 }
-
