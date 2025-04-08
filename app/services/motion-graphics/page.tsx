@@ -173,8 +173,9 @@ export default function MotionGraphicsPage() {
       <section className="py-20 px-6 bg-gradient-to-r from-purple-500/20 to-pink-500/20">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Bring Your Ideas to Life?</h2>
+          {/* Corrected Line Below */}
           <p className="text-xl text-zinc-300 mb-8">
-            Let&apos;s create animations that engage your audience and communicate your message effectively.
+            Let's create animations that engage your audience and communicate your message effectively.
           </p>
           <Link
             href="/contact"

@@ -249,6 +249,7 @@ export default function BrandingPage() {
       <section className="py-20 px-6 bg-gradient-to-r from-purple-500/20 to-pink-500/20">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Build a Powerful Brand?</h2>
+           {/* Corrected Line Below */}
           <p className="text-xl text-zinc-300 mb-8">
             Let's create a brand identity that resonates with your audience and drives business growth.
           </p>
