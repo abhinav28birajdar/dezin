@@ -148,7 +148,7 @@ export default function ContactPage() {
               <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent"> Touch</span>
             </h1>
             <p className="text-xl text-zinc-400 mb-8">
-              Have a project in mind? We'd love to hear about it. Get in touch with us to discuss how we can help bring
+              Have a project in mind? We&apos;d love to hear about it. Get in touch with us to discuss how we can help bring
               your vision to life.
             </p>
           </div>
@@ -162,7 +162,7 @@ export default function ContactPage() {
             <div>
               <h2 className="text-3xl font-bold mb-6">Contact Us</h2>
               <p className="text-zinc-400 mb-8">
-                Fill out the form below and we'll get back to you as soon as possible. We're looking forward to learning
+                Fill out the form below and we&apos;ll get back to you as soon as possible. We&apos;re looking forward to learning
                 more about your project.
               </p>
 
@@ -280,7 +280,7 @@ export default function ContactPage() {
                     <CheckCircle className="h-16 w-16 text-green-500 mb-4" />
                     <h4 className="text-xl font-bold mb-2">Message Sent!</h4>
                     <p className="text-zinc-400">
-                      Thank you for reaching out. We'll get back to you shortly.
+                      Thank you for reaching out. We&apos;ll get back to you shortly.
                     </p>
                   </div>
                 ) : (
@@ -483,7 +483,7 @@ export default function ContactPage() {
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Start Your Project?</h2>
           <p className="text-xl text-zinc-300 mb-8">
-            Let's create something amazing together that exceeds your expectations and achieves your goals.
+            Let&apos;s create something amazing together that exceeds your expectations and achieves your goals.
           </p>
           <Link
             href="/contact"
