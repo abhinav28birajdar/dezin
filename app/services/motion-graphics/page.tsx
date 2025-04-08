@@ -9,7 +9,7 @@ export default function MotionGraphicsPage() {
       {/* Link the PageHeader - Assuming you want the header linked */}
       <Link href="/">
         <div>
-          <PageHeader /> {/* Removed title prop as it's unused in PageHeader component */}
+          <PageHeader title={""} /> {/* Removed title prop as it's unused in PageHeader component */}
         </div>
       </Link>
       {/* Hero Section */}
