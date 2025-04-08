@@ -13,14 +13,34 @@ import {
   SelectValue
 } from "@/components/ui/select"
 import { Label } from "@/components/ui/label"
-// Added Mail, Phone, MapPin to imports
 import { Send, CheckCircle, AlertCircle, Mail, Phone, MapPin } from "lucide-react"
 import emailjs from "@emailjs/browser"
+
+// Define form state interface
+interface FormState {
+  name: string;
+  email: string;
+  phone: string;
+  company: string;
+  service: string;
+  message: string;
+}
+
+// Define field names interface
+interface EmailJsFieldNames {
+  name: string;
+  emailDisplay: string;
+  emailReplyTo: string;
+  phone: string;
+  company: string;
+  service: string;
+  message: string;
+}
 
 export function ContactSection() {
   const formRef = useRef<HTMLFormElement>(null)
 
-  const [formState, setFormState] = useState({
+  const [formState, setFormState] = useState<FormState>({
     name: "",
     email: "",
     phone: "",
@@ -29,15 +49,42 @@ export function ContactSection() {
     message: ""
   })
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
+  const [emailJsInitialized, setEmailJsInitialized] = useState<boolean>(false)
 
-  const emailJsPublicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+  // Extract environment variables
   const emailJsServiceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
   const emailJsTemplateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
+  const emailJsPublicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
 
-  const emailJsFieldNames = {
+  // Debug only in development environment
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'development') {
+      console.log("EmailJS Config Status:", {
+        serviceId: emailJsServiceId ? "Loaded" : "Missing",
+        templateId: emailJsTemplateId ? "Loaded" : "Missing",
+        publicKey: emailJsPublicKey ? "Loaded" : "Missing"
+      })
+    }
+  }, [emailJsServiceId, emailJsTemplateId, emailJsPublicKey])
+
+  // Initialize EmailJS once when component loads
+  useEffect(() => {
+    if (emailJsPublicKey && !emailJsInitialized) {
+      try {
+        emailjs.init(emailJsPublicKey)
+        setEmailJsInitialized(true)
+      } catch (error) {
+        console.error("Failed to initialize EmailJS:", error)
+        setSubmitError("Email service initialization failed. Please try again later.")
+      }
+    }
+  }, [emailJsPublicKey, emailJsInitialized])
+
+  // Field name mapping for EmailJS template
+  const emailJsFieldNames: EmailJsFieldNames = {
     name: "from_name",
     emailDisplay: "from_email",
     emailReplyTo: "reply_to",
@@ -47,15 +94,9 @@ export function ContactSection() {
     message: "message"
   }
 
-  useEffect(() => {
-    if (emailJsPublicKey) {
-      emailjs.init(emailJsPublicKey)
-    }
-  }, [emailJsPublicKey])
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name: inputName, value } = e.target
-    let stateKeyToUpdate: keyof typeof formState | null = null
+    let stateKeyToUpdate: keyof FormState | null = null
 
     if (inputName === emailJsFieldNames.name) stateKeyToUpdate = "name"
     else if (inputName === emailJsFieldNames.emailDisplay) stateKeyToUpdate = "email"
@@ -64,7 +105,7 @@ export function ContactSection() {
     else if (inputName === emailJsFieldNames.message) stateKeyToUpdate = "message"
 
     if (stateKeyToUpdate) {
-      setFormState((prev) => ({ ...prev, [stateKeyToUpdate!]: value }))
+      setFormState((prev) => ({ ...prev, [stateKeyToUpdate as string]: value }))
     }
   }
 
@@ -72,26 +113,39 @@ export function ContactSection() {
     setFormState((prev) => ({ ...prev, service: value }))
   }
 
+  const validateConfig = (): boolean => {
+    // Check if all required configuration is available
+    if (!emailJsServiceId || !emailJsTemplateId || !emailJsPublicKey) {
+      setSubmitError("Email service configuration is incomplete. Please contact support.")
+      return false
+    }
+    
+    if (!formRef.current) {
+      setSubmitError("Form reference missing. Please refresh and try again.")
+      return false
+    }
+    
+    return true
+  }
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
     setSubmitError(null)
 
-    if (!emailJsServiceId || !emailJsTemplateId || !emailJsPublicKey) {
-      setSubmitError("Email service configuration is incomplete. Please contact support.")
+    // Validate configuration before proceeding
+    if (!validateConfig()) {
       setIsSubmitting(false)
       return
     }
 
-    if (!formRef.current) {
-      setSubmitError("Form reference missing. Please refresh and try again.")
-      setIsSubmitting(false)
-      return
-    }
+    // We've already validated these are not undefined in validateConfig
+    const serviceId = emailJsServiceId as string
+    const templateId = emailJsTemplateId as string
 
     emailjs
-      .sendForm(emailJsServiceId, emailJsTemplateId, formRef.current)
-      .then(() => { // Removed the unused 'response' parameter
+      .sendForm(serviceId, templateId, formRef.current as HTMLFormElement)
+      .then(() => {
         setIsSubmitting(false)
         setIsSubmitted(true)
         setFormState({
@@ -102,17 +156,20 @@ export function ContactSection() {
           service: "",
           message: ""
         })
-        formRef.current?.reset() // Reset the form fields visually
-        // Optionally reset the Select component's visual state if needed,
-        // though resetting formState should handle the underlying value.
+        if (formRef.current) {
+          formRef.current.reset()
+        }
         setTimeout(() => setIsSubmitted(false), 5000)
       })
       .catch((err: Error) => {
-        console.error("FAILED...", err)
+        console.error("Failed to send message:", err)
         setIsSubmitting(false)
         setSubmitError("Failed to send message. Please check your connection or try again later.")
       })
   }
+
+  // Check if configuration is available
+  const isConfigAvailable = emailJsServiceId && emailJsTemplateId && emailJsPublicKey
 
   return (
     <section className="py-24 bg-muted/30">
@@ -133,7 +190,7 @@ export function ContactSection() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-10 items-start">
-          {/* --- Start: Integrated Contact Information Section --- */}
+          {/* Contact Information Section */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -145,7 +202,7 @@ export function ContactSection() {
 
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <Mail className="h-6 w-6 mr-4 text-primary flex-shrink-0 mt-1" /> {/* Added flex-shrink-0 and mt-1 for alignment */}
+                  <Mail className="h-6 w-6 mr-4 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-medium">Email Us</h4>
                     <p className="text-muted-foreground">hello@Artynex.com</p>
@@ -154,7 +211,7 @@ export function ContactSection() {
                 </div>
 
                 <div className="flex items-start">
-                  <Phone className="h-6 w-6 mr-4 text-primary flex-shrink-0 mt-1" /> {/* Added flex-shrink-0 and mt-1 for alignment */}
+                  <Phone className="h-6 w-6 mr-4 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-medium">Call Us</h4>
                     <p className="text-muted-foreground">+1 (555) 123-4567</p>
@@ -163,11 +220,11 @@ export function ContactSection() {
                 </div>
 
                 <div className="flex items-start">
-                  <MapPin className="h-6 w-6 mr-4 text-primary flex-shrink-0 mt-1" /> {/* Added flex-shrink-0 and mt-1 for alignment */}
+                  <MapPin className="h-6 w-6 mr-4 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-medium">Visit Us</h4>
                     <p className="text-muted-foreground">
-                    Artynex
+                      Artynex
                       <br />
                       Nanded-431602 
                       <br />
@@ -181,8 +238,8 @@ export function ContactSection() {
                 <h4 className="font-medium mb-4">Follow Us</h4>
                 <div className="flex space-x-4">
                   <a
-                    href="#" // Replace with actual social media links
-                    aria-label="Follow us on Facebook" // Added aria-label for accessibility
+                    href="#"
+                    aria-label="Follow us on Facebook"
                     className="h-10 w-10 flex items-center justify-center rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
                   >
                     <svg
@@ -200,8 +257,8 @@ export function ContactSection() {
                     </svg>
                   </a>
                   <a
-                    href="https://www.instagram.com/artynexdesign/" // Replace with actual social media links
-                    aria-label="Follow us on Instagram" // Added aria-label for accessibility
+                    href="https://www.instagram.com/artynexdesign/"
+                    aria-label="Follow us on Instagram"
                     className="h-10 w-10 flex items-center justify-center rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
                   >
                     <svg
@@ -221,8 +278,8 @@ export function ContactSection() {
                     </svg>
                   </a>
                   <a
-                    href="https://www.linkedin.com/in/artynex/" // Replace with actual social media links
-                    aria-label="Follow us on LinkedIn" // Added aria-label for accessibility
+                    href="https://www.linkedin.com/in/artynex/"
+                    aria-label="Follow us on LinkedIn"
                     className="h-10 w-10 flex items-center justify-center rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
                   >
                     <svg
@@ -242,8 +299,8 @@ export function ContactSection() {
                     </svg>
                   </a>
                   <a
-                    href="https://x.com/artynexdesign" // Replace with actual social media links
-                    aria-label="Follow us on Twitter" // Added aria-label for accessibility
+                    href="https://x.com/artynexdesign"
+                    aria-label="Follow us on Twitter"
                     className="h-10 w-10 flex items-center justify-center rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
                   >
                     <svg
@@ -264,10 +321,8 @@ export function ContactSection() {
               </div>
             </div>
           </motion.div>
-          {/* --- End: Integrated Contact Information Section --- */}
 
-
-          {/* --- Start: Form Section (mostly unchanged) --- */}
+          {/* Form Section */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -276,6 +331,15 @@ export function ContactSection() {
           >
             <div className="bg-card rounded-lg p-8 shadow-sm">
               <h3 className="text-2xl font-bold mb-6">Send Us a Message</h3>
+
+              {!isConfigAvailable && (
+                <div className="p-4 bg-red-50 border border-red-200 rounded-md flex items-start mb-6">
+                  <AlertCircle className="h-5 w-5 text-red-500 mr-2 mt-0.5 flex-shrink-0" />
+                  <p className="text-sm text-red-700">
+                    Email service configuration is incomplete. Please contact support or check your environment variables.
+                  </p>
+                </div>
+              )}
 
               {isSubmitted ? (
                 <div className="flex flex-col items-center justify-center py-10 text-center">
@@ -289,8 +353,8 @@ export function ContactSection() {
                 <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                   {submitError && (
                     <div className="p-4 bg-red-50 border border-red-200 rounded-md flex items-start">
-                      <AlertCircle className="h-5 w-5 text-red-500 mr-2 mt-0.5 flex-shrink-0" /> {/* Added flex-shrink-0 */}
-                      <p className="text-sm text-red-700">{submitError}</p> {/* Adjusted text size/color */}
+                      <AlertCircle className="h-5 w-5 text-red-500 mr-2 mt-0.5 flex-shrink-0" />
+                      <p className="text-sm text-red-700">{submitError}</p>
                     </div>
                   )}
 
@@ -303,16 +367,15 @@ export function ContactSection() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      {/* Label points to Input ID */}
                       <Label htmlFor={emailJsFieldNames.name}>Full Name</Label>
                       <Input
-                        id={emailJsFieldNames.name} // Use field name for ID for consistency
+                        id={emailJsFieldNames.name}
                         name={emailJsFieldNames.name}
                         value={formState.name}
                         onChange={handleChange}
                         placeholder="John Doe"
                         required
-                        aria-required="true" // Accessibility
+                        aria-required="true"
                       />
                     </div>
 
@@ -335,7 +398,7 @@ export function ContactSection() {
                       <Input
                         id={emailJsFieldNames.phone}
                         name={emailJsFieldNames.phone}
-                        type="tel" // Use type="tel" for phone numbers
+                        type="tel"
                         value={formState.phone}
                         onChange={handleChange}
                         placeholder="+1 (555) 123-4567"
@@ -355,12 +418,9 @@ export function ContactSection() {
                   </div>
 
                   <div className="space-y-2">
-                    {/* Changed Label to target the SelectTrigger */}
                     <Label htmlFor="service-select">Service Interested In</Label>
-                    {/* Assign an ID to SelectTrigger for the Label */}
                     <Select
-                      name={emailJsFieldNames.service} // Add name attribute directly to Select for form submission
-                      value={formState.service} // Control the value
+                      value={formState.service}
                       onValueChange={handleServiceChange}
                       required
                     >
@@ -378,6 +438,7 @@ export function ContactSection() {
                       </SelectContent>
                     </Select>
                   
+                    {/* Hidden input to ensure service value is included in form submission */}
                     <input type="hidden" name={emailJsFieldNames.service} value={formState.service} />
                   </div>
 
@@ -396,8 +457,8 @@ export function ContactSection() {
                   </div>
                   <Button
                     type="submit"
-                    className="w-80 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white" // Added text-white for contrast
-                    disabled={isSubmitting}
+                    className="w-80 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white"
+                    disabled={isSubmitting || !isConfigAvailable}
                   >
                     {isSubmitting ? (
                       <span className="flex items-center justify-center"> 
