@@ -205,10 +205,8 @@ export default function CareersPage() {
               },
             ].map((testimonial, index) => (
               <div key={index} className="p-6 border border-zinc-800 rounded-lg">
-                {/* eslint-disable-next-line react/no-unescaped-entities */}
-                <p className="text-zinc-300 italic mb-6">"{testimonial.quote}"</p>
+                <p className="text-zinc-300 italic mb-6">&quot;{testimonial.quote}&quot;</p>
                 <div className="flex items-center gap-3">
-                  {/* eslint-disable-next-line react/no-unescaped-entities */}
                   <div className="relative h-12 w-12 rounded-full overflow-hidden">
                     <Image
                       src={testimonial.avatar}
