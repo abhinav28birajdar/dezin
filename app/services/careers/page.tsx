@@ -11,7 +11,7 @@ export default function CareersPage() {
           <PageHeader title="Careers" />
         </div>
       </Link>
-
+      
       {/* Hero Section */}
       <section className="py-20 px-6 border-b border-zinc-800">
         <div className="max-w-7xl mx-auto">
@@ -20,7 +20,8 @@ export default function CareersPage() {
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-white">Join Our</span>
                 <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
-                  {" "}Team
+                  {" "}
+                  Team
                 </span>
               </h1>
               <p className="text-xl text-zinc-400 mb-8">
@@ -224,7 +225,7 @@ export default function CareersPage() {
           </div>
         </div>
       </section>
-
+      
       {/* Application Process */}
       <section className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
@@ -259,6 +260,22 @@ export default function CareersPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 px-6 bg-gradient-to-r from-purple-500/20 to-pink-500/20">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">No Current Openings That Fit?</h2>
+          <p className="text-xl text-zinc-300 mb-8">
+            We&apos;re always interested in connecting with talented individuals. Send us your resume for future opportunities.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-4 rounded-md font-medium hover:opacity-90 transition-opacity"
+          >
+            Submit Your Resume <ArrowRight size={18} />
+          </Link>
         </div>
       </section>
     </div>
