@@ -1,17 +1,17 @@
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import PageHeader from "@/components/page-header";
+import Image from "next/image"
+import Link from "next/link"
+import { ArrowRight } from "lucide-react"
+import PageHeader from "@/components/page-header"
 
 export default function BrandingPage() {
   return (
     <div>
       <Link href="/">
         <div>
-          {/* Updated: PageHeader component doesn't take title prop anymore */}
-          <PageHeader />
+          <PageHeader title="AR/VR Design" />
         </div>
       </Link>
+
       {/* Hero Section */}
       <section className="py-20 px-6 border-b border-zinc-800">
         <div className="max-w-7xl mx-auto">
@@ -36,11 +36,10 @@ export default function BrandingPage() {
             </div>
             <div className="relative aspect-square w-full max-w-md mx-auto lg:max-w-none">
               <Image
-                src="/Branding Services.jpeg" // Assuming this image exists
+                src="/Branding Services.jpeg?height=600&width=600"
                 alt="Branding"
                 fill
                 className="object-cover rounded-lg"
-                priority // Add priority if it's LCP
               />
             </div>
           </div>
@@ -99,105 +98,57 @@ export default function BrandingPage() {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center">Featured Branding Work</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Project 1 - Cozy Café */}
-            <div className="group relative aspect-square overflow-hidden rounded-lg">
-              <Image
-                src="/Branding1.jpeg" // Assuming this image exists
-                alt="Cozy Café Brand"
-                fill
-                className="object-cover transition-transform group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Cozy Café Brand</h3>
-                  <p className="text-zinc-300">Warm and inviting branding for an artisanal coffee shop</p>
+            {[
+              {
+                img: "/Branding1.jpeg",
+                title: "Cozy Café Brand",
+                desc: "Warm and inviting branding for an artisanal coffee shop",
+              },
+              {
+                img: "/Branding2.jpeg",
+                title: "MinimGlobe Skincare",
+                desc: "Elegant, minimalist branding for a luxury skincare line",
+              },
+              {
+                img: "/Branding3.jpeg",
+                title: "Creative Eye Studio",
+                desc: "Bold, colorful identity system for a design agency",
+              },
+              {
+                img: "/Branding4.jpeg",
+                title: "Luxury M Brand",
+                desc: "Premium gold-foil branding for an exclusive lifestyle brand",
+              },
+              {
+                img: "/Branding5.jpeg",
+                title: "Premium Real Estate",
+                desc: "Sophisticated gold signage and branding for a luxury property developer",
+              },
+              {
+                img: "/Branding6.jpeg",
+                title: "Aline Design Studio",
+                desc: "Vibrant, colorful branding for a graphic design and creative agency",
+              },
+            ].map((project, index) => (
+              <div key={index} className="group relative aspect-square overflow-hidden rounded-lg">
+                <Image
+                  src={project.img}
+                  alt={project.title}
+                  fill
+                  className="object-cover transition-transform group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                    <p className="text-zinc-300">{project.desc}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            {/* Project 2 - Minimglobe Skincare */}
-            <div className="group relative aspect-square overflow-hidden rounded-lg">
-              <Image
-                src="/Branding2.jpeg" // Assuming this image exists
-                alt="MinimGlobe Skincare"
-                fill
-                className="object-cover transition-transform group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">MinimGlobe Skincare</h3>
-                  <p className="text-zinc-300">Elegant, minimalist branding for a luxury skincare line</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Project 3 - Creative Eye Studio */}
-            <div className="group relative aspect-square overflow-hidden rounded-lg">
-              <Image
-                src="/Branding3.jpeg" // Assuming this image exists
-                alt="Creative Eye Studio Brand"
-                fill
-                className="object-cover transition-transform group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Creative Eye Studio</h3>
-                  <p className="text-zinc-300">Bold, colorful identity system for a design agency</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Project 4 - Luxury M Brand */}
-            <div className="group relative aspect-square overflow-hidden rounded-lg">
-              <Image
-                src="/Branding4.jpeg" // Assuming this image exists
-                alt="Luxury M Brand"
-                fill
-                className="object-cover transition-transform group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Luxury M Brand</h3>
-                  <p className="text-zinc-300">Premium gold-foil branding for an exclusive lifestyle brand</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Project 5 - Premium Real Estate */}
-            <div className="group relative aspect-square overflow-hidden rounded-lg">
-              <Image
-                src="/Branding5.jpeg" // Assuming this image exists
-                alt="Premium Real Estate Brand"
-                fill
-                className="object-cover transition-transform group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Premium Real Estate</h3>
-                  <p className="text-zinc-300">Sophisticated gold signage and branding for a luxury property developer</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Project 6 - Aline Design Studio */}
-            <div className="group relative aspect-square overflow-hidden rounded-lg">
-              <Image
-                src="/Branding6.jpeg" // Assuming this image exists
-                alt="Aline Design Studio"
-                fill
-                className="object-cover transition-transform group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Aline Design Studio</h3>
-                  <p className="text-zinc-300">Vibrant, colorful branding for a graphic design and creative agency</p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
           <div className="text-center mt-12">
             <Link
-              href="/contact" // Consider linking to a portfolio page
+              href="/contact"
               className="inline-flex items-center gap-2 border border-purple-500 text-purple-500 px-6 py-3 rounded-md font-medium hover:bg-purple-500/10 transition-colors"
             >
               View All Projects <ArrowRight size={18} />
@@ -251,18 +202,17 @@ export default function BrandingPage() {
       <section className="py-20 px-6 bg-gradient-to-r from-purple-500/20 to-pink-500/20">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Build a Powerful Brand?</h2>
-          {/* FIX: Replaced ' with ' */}
           <p className="text-xl text-zinc-300 mb-8">
-            Let's create a brand identity that resonates with your audience and drives business growth.
+            Let&rsquo;s create a brand identity that resonates with your audience and drives business growth.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-4 rounded-md font-medium hover:opacity-90 transition-opacity"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-md font-medium hover:opacity-90 transition-opacity"
           >
-            Get in Touch <ArrowRight size={18} />
+            Start Your Project <ArrowRight size={18} />
           </Link>
         </div>
       </section>
     </div>
-  );
+  )
 }
