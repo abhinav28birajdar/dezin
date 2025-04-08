@@ -2,10 +2,12 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import React from "react"
+import PageHeader from "@/components/page-header"
 
 export default function InsightsPage() {
   return (
     <div>
+        <PageHeader  />
       {/* Hero Section */}
       <section className="py-20 px-6 border-b border-zinc-800">
         <div className="max-w-7xl mx-auto">
