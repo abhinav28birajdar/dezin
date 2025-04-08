@@ -174,7 +174,7 @@ export default function MotionGraphicsPage() {
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Bring Your Ideas to Life?</h2>
           <p className="text-xl text-zinc-300 mb-8">
-            Let's create animations that engage your audience and communicate your message effectively.
+            Let&apos;s create animations that engage your audience and communicate your message effectively.
           </p>
           <Link
             href="/contact"
@@ -187,4 +187,3 @@ export default function MotionGraphicsPage() {
     </div>
   )
 }
-
