@@ -1,14 +1,15 @@
-import Image from "next/image"
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
-import PageHeader from "@/components/page-header"
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import PageHeader from "@/components/page-header";
 
 export default function MotionGraphicsPage() {
   return (
     <div>
+      {/* Link the PageHeader - Assuming you want the header linked */}
       <Link href="/">
         <div>
-          <PageHeader title="Motion Graphics" />
+          <PageHeader /> {/* Removed title prop as it's unused in PageHeader component */}
         </div>
       </Link>
       {/* Hero Section */}
@@ -36,10 +37,11 @@ export default function MotionGraphicsPage() {
             </div>
             <div className="relative aspect-video w-full max-w-md mx-auto lg:max-w-none">
               <Image
-                src="/placeholder.svg?height=450&width=800"
+                src="/placeholder.svg?height=450&width=800" // Keep placeholder or replace with actual image
                 alt="Motion Graphics"
                 fill
                 className="object-cover rounded-lg"
+                priority // Add priority if it's LCP
               />
             </div>
           </div>
@@ -53,33 +55,33 @@ export default function MotionGraphicsPage() {
           <p className="text-zinc-400 text-center max-w-2xl mx-auto mb-12">
             Meet the creative minds behind our stunning motion graphics and animations.
           </p>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
                 name: "Emily Rodriguez",
                 role: "Motion Director",
                 bio: "Expert in storytelling through animation with 8+ years experience in the industry.",
-                image: "/placeholder.svg?height=400&width=400"
+                image: "/placeholder.svg?height=400&width=400", // Placeholder or actual image
               },
               {
                 name: "Kai Zhang",
                 role: "2D Animator",
                 bio: "Specializes in character animation and fluid motion design for brands.",
-                image: "/placeholder.svg?height=400&width=400"
+                image: "/placeholder.svg?height=400&width=400", // Placeholder or actual image
               },
               {
                 name: "Nadia Patel",
                 role: "3D Animation Lead",
                 bio: "Creates immersive 3D animations that push creative boundaries.",
-                image: "/placeholder.svg?height=400&width=400"
+                image: "/placeholder.svg?height=400&width=400", // Placeholder or actual image
               },
               {
                 name: "Marcus Taylor",
                 role: "Motion Graphics Artist",
                 bio: "Transforms concepts into engaging animated content for digital platforms.",
-                image: "/placeholder.svg?height=400&width=400"
-              }
+                image: "/placeholder.svg?height=400&width=400", // Placeholder or actual image
+              },
             ].map((member, index) => (
               <div key={index} className="group relative overflow-hidden rounded-lg">
                 <div className="aspect-square relative">
@@ -153,7 +155,7 @@ export default function MotionGraphicsPage() {
             {[...Array(4)].map((_, index) => (
               <div key={index} className="group relative aspect-video overflow-hidden rounded-lg">
                 <Image
-                  src={`/placeholder.svg?height=450&width=800&text=Motion+Project+${index + 1}`}
+                  src={`/placeholder.svg?height=450&width=800&text=Motion+Project+${index + 1}`} // Placeholder or actual image
                   alt={`Motion Project ${index + 1}`}
                   fill
                   className="object-cover transition-transform group-hover:scale-105"
@@ -169,7 +171,7 @@ export default function MotionGraphicsPage() {
           </div>
           <div className="text-center mt-12">
             <Link
-              href="/contact"
+              href="/contact" // Consider linking to a portfolio page if it exists
               className="inline-flex items-center gap-2 border border-purple-500 text-purple-500 px-6 py-3 rounded-md font-medium hover:bg-purple-500/10 transition-colors"
             >
               View All Projects <ArrowRight size={18} />
@@ -229,8 +231,9 @@ export default function MotionGraphicsPage() {
       <section className="py-20 px-6 bg-gradient-to-r from-purple-500/20 to-pink-500/20">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Bring Your Ideas to Life?</h2>
+          {/* FIX: Replaced ' with ' */}
           <p className="text-xl text-zinc-300 mb-8">
-            Let&apos;s create animations that engage your audience and communicate your message effectively.
+            Let's create animations that engage your audience and communicate your message effectively.
           </p>
           <Link
             href="/contact"
@@ -241,5 +244,5 @@ export default function MotionGraphicsPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }
