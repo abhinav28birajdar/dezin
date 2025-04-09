@@ -118,13 +118,13 @@ export function HeroSection() {
               className="w-full sm:w-auto bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
               asChild
             >
-              <Link href="/portfolio">View Our Work</Link>
+              <Link href="/services/eventdesign">View Our Work</Link>
             </Button>
             <Button size="lg" variant="outline" className="w-full sm:w-auto" asChild>
               <Link href="/services/contact">Request a Quote</Link>
             </Button>
             <Button size="lg" variant="ghost" className="w-full sm:w-auto" asChild>
-              <Link href="/services">Explore Services</Link>
+              <Link href="/services/Branding">Explore Services</Link>
             </Button>
           </div>
         </motion.div>
