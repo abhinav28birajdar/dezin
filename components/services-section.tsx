@@ -87,6 +87,10 @@ const services = [
 export function ServicesSection() {
   const [activeTab, setActiveTab] = useState("graphic-design")
 
+  // Split services into two rows for mobile
+  const firstRowServices = services.slice(0, 3)
+  const secondRowServices = services.slice(3)
+
   return (
     <section className="py-24 bg-background">
       <div className="container px-4 md:px-6">
@@ -105,7 +109,34 @@ export function ServicesSection() {
         </div>
 
         <Tabs defaultValue={activeTab} onValueChange={setActiveTab} className="w-full">
-          <div className="flex justify-center mb-12">
+          {/* Mobile tabs (two rows) */}
+          <div className="md:hidden flex flex-col items-center gap-2 mb-8">
+            <TabsList className="inline-flex bg-muted/80 rounded-lg p-1">
+              {firstRowServices.map((service) => (
+                <TabsTrigger
+                  key={service.id}
+                  value={service.id}
+                  className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground px-3 py-2 text-sm"
+                >
+                  {service.title}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+            <TabsList className="inline-flex bg-muted/80 rounded-lg p-1">
+              {secondRowServices.map((service) => (
+                <TabsTrigger
+                  key={service.id}
+                  value={service.id}
+                  className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground px-3 py-2 text-sm"
+                >
+                  {service.title}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </div>
+
+          {/* Desktop tabs (single row) */}
+          <div className="hidden md:flex justify-center mb-12">
             <TabsList className="inline-flex bg-muted/80 rounded-lg p-1">
               {services.map((service) => (
                 <TabsTrigger

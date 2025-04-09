@@ -81,13 +81,10 @@ export function HeroSection() {
         <Canvas camera={{ position: [0, 0, 10], fov: 45 }}>
           <ambientLight intensity={0.5} />
           <pointLight position={[10, 10, 10]} intensity={1} />
-          {/* The <Float> error might resolve with the above fixes.
-              If it persists, check library versions (fiber, drei, three, @types/three). */}
           <Float speed={2} rotationIntensity={1} floatIntensity={1}>
             <AnimatedSphere position={[-3, 1, -2]} color="#7928ca" />
             <AnimatedTorus position={[4, -1, -1]} color="#0070f3" />
             <AnimatedSphere position={[5, 2, -5]} color="#ff49db" />
-            {/* <AnimatedTorus position={[-2, -2, -3]} color="#ff4d4d" /> */}
             <AnimatedTriangle position={[0, 3, -2]} color="#50c878" />
             <AnimatedTriangle position={[2, -2, -2]} color="#50c878" />
           </Float>
@@ -96,36 +93,37 @@ export function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-12 h-full flex flex-col justify-center items-start px-5 md:px-6">
+      <div className="relative z-10 container mx-auto h-full flex flex-col justify-center items-center md:items-start px-6 md:px-12 lg:px-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-3xl"
+          className="max-w-3xl text-center md:text-left md:ml-8 lg:ml-12"
         >
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 md:mb-6">
             <span className="block">Crafting Digital</span>
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500">
               Experiences That Inspire
             </span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl">
+          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto md:mx-0">
             We blend creativity with technology to deliver stunning designs and immersive digital experiences that
             elevate your brand.
           </p>
 
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
             <Button
               size="lg"
-              className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+              className="w-full sm:w-auto bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+              asChild
             >
               <Link href="/portfolio">View Our Work</Link>
             </Button>
-            <Button size="lg" variant="outline">
-              <Link href="/contact">Request a Quote</Link>
+            <Button size="lg" variant="outline" className="w-full sm:w-auto" asChild>
+              <Link href="/services/contact">Request a Quote</Link>
             </Button>
-            <Button size="lg" variant="ghost">
+            <Button size="lg" variant="ghost" className="w-full sm:w-auto" asChild>
               <Link href="/services">Explore Services</Link>
             </Button>
           </div>

@@ -172,7 +172,7 @@ export function Navbar() {
                 Services
               </Link>
               <Link
-                href="/portfolio"
+                href="/services/portfolio"
                 className="px-4 py-2 text-sm font-medium rounded-md hover:bg-accent"
                 onClick={() => setMobileMenuOpen(false)}
               >
