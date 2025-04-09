@@ -110,7 +110,7 @@ export function Footer() {
                 </Link>
               </li> */}
               <li>
-                <Link href="/contact" className="text-zinc-400 hover:text-pink-500 transition-colors">
+                <Link href="/services/contact" className="text-zinc-400 hover:text-pink-500 transition-colors">
                   Contact
                 </Link>
               </li>
