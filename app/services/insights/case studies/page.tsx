@@ -20,7 +20,7 @@ export default function CaseStudiesPage() {
               </span>
             </h1>
             <p className="text-xl text-zinc-400 mb-8">
-              In-depth analysis of our projects and the impact they've made for our clients.
+              In-depth analysis of our projects and the impact they&apos;ve made for our clients.
             </p>
           </div>
         </div>
@@ -145,7 +145,7 @@ export default function CaseStudiesPage() {
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Digital Experience?</h2>
           <p className="text-xl text-zinc-300 mb-8">
-            Let's collaborate to create exceptional digital experiences that drive results for your business.
+            Let&apos;s collaborate to create exceptional digital experiences that drive results for your business.
           </p>
           <Link
             href="/contact"
