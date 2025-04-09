@@ -34,7 +34,7 @@ export function Footer() {
                 </Link>
               </Button>
               <Button size="icon" variant="ghost" asChild>
-                <Link href="www.linkedin.com/in/artynex" aria-label="LinkedIn">
+                <Link href="https://www.linkedin.com/in/artynexdesign" aria-label="LinkedIn">
                   <Linkedin className="h-5 w-5" />
                 </Link>
               </Button>

@@ -203,7 +203,7 @@ export default function ContactPage() {
               <div>
                 <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
                 <div className="flex space-x-4">
-                  <a href="#" className="h-10 w-10 flex items-center justify-center rounded-full bg-zinc-800 hover:bg-purple-500 hover:text-white transition-colors" aria-label="Follow us on Facebook">
+                  <a href="https://www.facebook.com/artunexdesign/" className="h-10 w-10 flex items-center justify-center rounded-full bg-zinc-800 hover:bg-purple-500 hover:text-white transition-colors" aria-label="Follow us on Facebook">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
@@ -235,7 +235,7 @@ export default function ContactPage() {
                       <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                     </svg>
                   </a>
-                  <a href="https://www.linkedin.com/in/artynex/" className="h-10 w-10 flex items-center justify-center rounded-full bg-zinc-800 hover:bg-purple-500 hover:text-white transition-colors" aria-label="Follow us on LinkedIn">
+                  <a href="https://www.linkedin.com/in/artynexdesign/" className="h-10 w-10 flex items-center justify-center rounded-full bg-zinc-800 hover:bg-purple-500 hover:text-white transition-colors" aria-label="Follow us on LinkedIn">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"

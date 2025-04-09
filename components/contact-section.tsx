@@ -279,7 +279,7 @@ export function ContactSection() {
                     </svg>
                   </a>
                   <a
-                    href="https://www.linkedin.com/in/artynex/"
+                    href="https://www.linkedin.com/in/artynexdesign/"
                     aria-label="Follow us on LinkedIn"
                     className="h-9 w-9 md:h-10 md:w-10 flex items-center justify-center rounded-full bg-zinc-800 hover:bg-purple-500 transition-colors"
                   >
