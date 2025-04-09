@@ -98,7 +98,8 @@ export function Navbar() {
                   </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Link href="/team" legacyBehavior passHref>
+                  {/* Updated to correct path based on file structure */}
+                  <Link href="/services/team" legacyBehavior passHref>
                     <NavigationMenuLink className={navigationMenuTriggerStyle()}>Team</NavigationMenuLink>
                   </Link>
                 </NavigationMenuItem>
@@ -106,25 +107,25 @@ export function Navbar() {
                   <NavigationMenuTrigger>Insights</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                      <ListItem title="Blog" href="/blog">
+                      <ListItem title="Blog" href="/services/insights/Blog">
                         Latest articles and design trends
                       </ListItem>
-                      <ListItem title="Case Studies" href="/case-studies">
+                      <ListItem title="Case Studies" href="/services/insights/case studies">
                         In-depth analysis of our projects
                       </ListItem>
-                      <ListItem title="Resources" href="/resources">
+                      <ListItem title="Resources" href="/services/insights/Resource">
                         Free assets, tutorials, and tools
                       </ListItem>
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Link href="/careers" legacyBehavior passHref>
+                  <Link href="/services/careers" legacyBehavior passHref>
                     <NavigationMenuLink className={navigationMenuTriggerStyle()}>Careers</NavigationMenuLink>
                   </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Link href="/contact" legacyBehavior passHref>
+                  <Link href="/services/contact" legacyBehavior passHref>
                     <NavigationMenuLink className={navigationMenuTriggerStyle()}>Contact</NavigationMenuLink>
                   </Link>
                 </NavigationMenuItem>
@@ -178,35 +179,35 @@ export function Navbar() {
                 Portfolio
               </Link>
               <Link
-                href="/team"
+                href="/services/team"
                 className="px-4 py-2 text-sm font-medium rounded-md hover:bg-accent"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Team
               </Link>
               <Link
-                href="/insights"
+                href="/services/insights"
                 className="px-4 py-2 text-sm font-medium rounded-md hover:bg-accent"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Insights
               </Link>
               <Link
-                href="/careers"
+                href="/services/careers"
                 className="px-4 py-2 text-sm font-medium rounded-md hover:bg-accent"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Careers
               </Link>
               <Link
-                href="/contact"
+                href="/services/contact"
                 className="px-4 py-2 text-sm font-medium rounded-md hover:bg-accent"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Contact
               </Link>
               <Button asChild className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white">
-                <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>Let&apos;s Talk</Link>
+                <Link href="/services/contact" onClick={() => setMobileMenuOpen(false)}>Let&apos;s Talk</Link>
               </Button>
             </div>
           </div>
@@ -244,7 +245,7 @@ const services = [
   },
   {
     title: "Event Design",
-    href: "/services/sound-design",
+    href: "/services/eventdesign",
     description: "Transforming spaces and moments into unforgettable events.",
   },
 ]

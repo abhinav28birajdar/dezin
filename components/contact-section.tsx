@@ -172,58 +172,59 @@ export function ContactSection() {
   const isConfigAvailable = emailJsServiceId && emailJsTemplateId && emailJsPublicKey
 
   return (
-    <section className="py-24 bg-muted/30">
+    <section className="py-12 md:py-24 bg-muted/30">
       <div className="container px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+          <h2 className="text-2xl md:text-4xl font-bold tracking-tight mb-3 md:mb-4">
             Let&apos;s Create Something Amazing
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             Ready to elevate your brand? Get in touch with our team to discuss your project.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-10 items-start">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-10 items-start">
           {/* Contact Information Section */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
+            className="order-2 md:order-1" // Changed order for mobile
           >
-            <div className="bg-card rounded-lg p-8 shadow-sm">
-              <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
+            <div className="bg-card rounded-lg p-6 md:p-8 shadow-sm">
+              <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Contact Information</h3>
 
-              <div className="space-y-6">
+              <div className="space-y-4 md:space-y-6">
                 <div className="flex items-start">
-                  <Mail className="h-6 w-6 mr-4 text-primary flex-shrink-0 mt-1" />
+                  <Mail className="h-5 w-5 md:h-6 md:w-6 mr-3 md:mr-4 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-medium">Email Us</h4>
-                    <p className="text-muted-foreground">hello@Artynex.com</p>
-                    <p className="text-muted-foreground">support@Artynex.com</p>
+                    <p className="text-sm md:text-base text-muted-foreground">hello@Artynex.com</p>
+                    <p className="text-sm md:text-base text-muted-foreground">support@Artynex.com</p>
                   </div>
                 </div>
 
                 <div className="flex items-start">
-                  <Phone className="h-6 w-6 mr-4 text-primary flex-shrink-0 mt-1" />
+                  <Phone className="h-5 w-5 md:h-6 md:w-6 mr-3 md:mr-4 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-medium">Call Us</h4>
-                    <p className="text-muted-foreground">+1 (555) 123-4567</p>
-                    <p className="text-muted-foreground">Mon-Fri: 9am - 6pm EST</p>
+                    <p className="text-sm md:text-base text-muted-foreground">+1 (555) 123-4567</p>
+                    <p className="text-sm md:text-base text-muted-foreground">Mon-Fri: 9am - 6pm EST</p>
                   </div>
                 </div>
 
                 <div className="flex items-start">
-                  <MapPin className="h-6 w-6 mr-4 text-primary flex-shrink-0 mt-1" />
+                  <MapPin className="h-5 w-5 md:h-6 md:w-6 mr-3 md:mr-4 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-medium">Visit Us</h4>
-                    <p className="text-muted-foreground">
+                    <p className="text-sm md:text-base text-muted-foreground">
                       Artynex
                       <br />
                       Nanded-431602 
@@ -234,18 +235,18 @@ export function ContactSection() {
                 </div>
               </div>
 
-              <div className="mt-10">
-                <h4 className="font-medium mb-4">Follow Us</h4>
-                <div className="flex space-x-4">
+              <div className="mt-6 md:mt-10">
+                <h4 className="font-medium mb-3 md:mb-4">Follow Us</h4>
+                <div className="flex flex-wrap gap-2 md:gap-4">
                   <a
                     href="https://www.facebook.com/artunexdesign/"
                     aria-label="Follow us on Facebook"
-                    className="h-10 w-10 flex items-center justify-center rounded-full bg-zinc-800 hover:bg-purple-500 transition-colors"
+                    className="h-9 w-9 md:h-10 md:w-10 flex items-center justify-center rounded-full bg-zinc-800 hover:bg-purple-500 transition-colors"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
+                      width="18"
+                      height="18"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -259,12 +260,12 @@ export function ContactSection() {
                   <a
                     href="https://www.instagram.com/artynexdesign/"
                     aria-label="Follow us on Instagram"
-                    className="h-10 w-10 flex items-center justify-center rounded-full bg-zinc-800 hover:bg-purple-500 transition-colors"
+                    className="h-9 w-9 md:h-10 md:w-10 flex items-center justify-center rounded-full bg-zinc-800 hover:bg-purple-500 transition-colors"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
+                      width="18"
+                      height="18"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -280,12 +281,12 @@ export function ContactSection() {
                   <a
                     href="https://www.linkedin.com/in/artynex/"
                     aria-label="Follow us on LinkedIn"
-                    className="h-10 w-10 flex items-center justify-center rounded-full bg-zinc-800 hover:bg-purple-500 transition-colors"
+                    className="h-9 w-9 md:h-10 md:w-10 flex items-center justify-center rounded-full bg-zinc-800 hover:bg-purple-500 transition-colors"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
+                      width="18"
+                      height="18"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -301,13 +302,13 @@ export function ContactSection() {
                   <a
                     href="https://x.com/artynexdesign"
                     aria-label="Follow us on Twitter"
-                    className="h-10 w-10 flex items-center justify-center rounded-full bg-zinc-800 hover:bg-purple-500 transition-colors"
+                    className="h-9 w-9 md:h-10 md:w-10 flex items-center justify-center rounded-full bg-zinc-800 hover:bg-purple-500 transition-colors"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                    viewBox="0 0 512 512"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 512 512"
                       fill="white"
                       stroke="currentColor"
                       strokeWidth="2"
@@ -321,12 +322,12 @@ export function ContactSection() {
                   <a
                     href="https://www.behance.net/abhinavv10"
                     aria-label="Follow us on Behance"
-                    className="h-10 w-10 flex items-center justify-center rounded-full  bg-zinc-800 hover:bg-purple-500 transition-colors"
+                    className="h-9 w-9 md:h-10 md:w-10 flex items-center justify-center rounded-full bg-zinc-800 hover:bg-purple-500 transition-colors"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
+                      width="18"
+                      height="18"
                       viewBox="0 0 576 512"
                       fill="currentColor"
                     >
@@ -336,13 +337,13 @@ export function ContactSection() {
                   <a
                     href="https://discord.gg/jjQSyMCz"
                     aria-label="Follow us on Discord"
-                    className="h-10 w-10 flex items-center justify-center rounded-full  bg-zinc-800 hover:bg-purple-500 transition-colors"
+                    className="h-9 w-9 md:h-10 md:w-10 flex items-center justify-center rounded-full bg-zinc-800 hover:bg-purple-500 transition-colors"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                     viewBox="0 0 640 512"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 640 512"
                       fill="currentColor"
                     >
                      <path d="M524.5 69.8a1.5 1.5 0 0 0 -.8-.7A485.1 485.1 0 0 0 404.1 32a1.8 1.8 0 0 0 -1.9 .9 337.5 337.5 0 0 0 -14.9 30.6 447.8 447.8 0 0 0 -134.4 0 309.5 309.5 0 0 0 -15.1-30.6 1.9 1.9 0 0 0 -1.9-.9A483.7 483.7 0 0 0 116.1 69.1a1.7 1.7 0 0 0 -.8 .7C39.1 183.7 18.2 294.7 28.4 404.4a2 2 0 0 0 .8 1.4A487.7 487.7 0 0 0 176 479.9a1.9 1.9 0 0 0 2.1-.7A348.2 348.2 0 0 0 208.1 430.4a1.9 1.9 0 0 0 -1-2.6 321.2 321.2 0 0 1 -45.9-21.9 1.9 1.9 0 0 1 -.2-3.1c3.1-2.3 6.2-4.7 9.1-7.1a1.8 1.8 0 0 1 1.9-.3c96.2 43.9 200.4 43.9 295.5 0a1.8 1.8 0 0 1 1.9 .2c2.9 2.4 6 4.9 9.1 7.2a1.9 1.9 0 0 1 -.2 3.1 301.4 301.4 0 0 1 -45.9 21.8 1.9 1.9 0 0 0 -1 2.6 391.1 391.1 0 0 0 30 48.8 1.9 1.9 0 0 0 2.1 .7A486 486 0 0 0 610.7 405.7a1.9 1.9 0 0 0 .8-1.4C623.7 277.6 590.9 167.5 524.5 69.8zM222.5 337.6c-29 0-52.8-26.6-52.8-59.2S193.1 219.1 222.5 219.1c29.7 0 53.3 26.8 52.8 59.2C275.3 311 251.9 337.6 222.5 337.6zm195.4 0c-29 0-52.8-26.6-52.8-59.2S388.4 219.1 417.9 219.1c29.7 0 53.3 26.8 52.8 59.2C470.7 311 447.5 337.6 417.9 337.6z"/>
@@ -359,33 +360,34 @@ export function ContactSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
+            className="order-1 md:order-2" // Changed order for mobile
           >
-            <div className="bg-card rounded-lg p-8 shadow-sm">
-              <h3 className="text-2xl font-bold mb-6">Send Us a Message</h3>
+            <div className="bg-card rounded-lg p-6 md:p-8 shadow-sm">
+              <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Send Us a Message</h3>
 
               {!isConfigAvailable && (
-                <div className="p-4 bg-red-50 border border-red-200 rounded-md flex items-start mb-6">
-                  <AlertCircle className="h-5 w-5 text-red-500 mr-2 mt-0.5 flex-shrink-0" />
-                  <p className="text-sm text-red-700">
+                <div className="p-3 md:p-4 bg-red-50 border border-red-200 rounded-md flex items-start mb-4 md:mb-6">
+                  <AlertCircle className="h-4 w-4 md:h-5 md:w-5 text-red-500 mr-2 mt-0.5 flex-shrink-0" />
+                  <p className="text-xs md:text-sm text-red-700">
                     Email service configuration is incomplete. Please contact support or check your environment variables.
                   </p>
                 </div>
               )}
 
               {isSubmitted ? (
-                <div className="flex flex-col items-center justify-center py-10 text-center">
-                  <CheckCircle className="h-16 w-16 text-green-500 mb-4" />
-                  <h4 className="text-xl font-bold mb-2">Message Sent!</h4>
-                  <p className="text-muted-foreground">
+                <div className="flex flex-col items-center justify-center py-8 md:py-10 text-center">
+                  <CheckCircle className="h-12 w-12 md:h-16 md:w-16 text-green-500 mb-3 md:mb-4" />
+                  <h4 className="text-lg md:text-xl font-bold mb-2">Message Sent!</h4>
+                  <p className="text-sm md:text-base text-muted-foreground">
                     Thank you for reaching out. We&apos;ll get back to you shortly.
                   </p>
                 </div>
               ) : (
-                <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
                   {submitError && (
-                    <div className="p-4 bg-red-50 border border-red-200 rounded-md flex items-start">
-                      <AlertCircle className="h-5 w-5 text-red-500 mr-2 mt-0.5 flex-shrink-0" />
-                      <p className="text-sm text-red-700">{submitError}</p>
+                    <div className="p-3 md:p-4 bg-red-50 border border-red-200 rounded-md flex items-start">
+                      <AlertCircle className="h-4 w-4 md:h-5 md:w-5 text-red-500 mr-2 mt-0.5 flex-shrink-0" />
+                      <p className="text-xs md:text-sm text-red-700">{submitError}</p>
                     </div>
                   )}
 
@@ -396,9 +398,9 @@ export function ContactSection() {
                     value={formState.email}
                   />
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor={emailJsFieldNames.name}>Full Name</Label>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                    <div className="space-y-1 md:space-y-2">
+                      <Label htmlFor={emailJsFieldNames.name} className="text-sm md:text-base">Full Name</Label>
                       <Input
                         id={emailJsFieldNames.name}
                         name={emailJsFieldNames.name}
@@ -407,11 +409,12 @@ export function ContactSection() {
                         placeholder="John Doe"
                         required
                         aria-required="true"
+                        className="h-10 md:h-auto text-sm md:text-base"
                       />
                     </div>
 
-                    <div className="space-y-2">
-                      <Label htmlFor={emailJsFieldNames.emailDisplay}>Email Address</Label>
+                    <div className="space-y-1 md:space-y-2">
+                      <Label htmlFor={emailJsFieldNames.emailDisplay} className="text-sm md:text-base">Email Address</Label>
                       <Input
                         id={emailJsFieldNames.emailDisplay}
                         name={emailJsFieldNames.emailDisplay}
@@ -421,11 +424,12 @@ export function ContactSection() {
                         placeholder="john@example.com"
                         required
                         aria-required="true"
+                        className="h-10 md:h-auto text-sm md:text-base"
                       />
                     </div>
 
-                    <div className="space-y-2">
-                      <Label htmlFor={emailJsFieldNames.phone}>Phone Number</Label>
+                    <div className="space-y-1 md:space-y-2">
+                      <Label htmlFor={emailJsFieldNames.phone} className="text-sm md:text-base">Phone Number</Label>
                       <Input
                         id={emailJsFieldNames.phone}
                         name={emailJsFieldNames.phone}
@@ -433,29 +437,31 @@ export function ContactSection() {
                         value={formState.phone}
                         onChange={handleChange}
                         placeholder="+1 (555) 123-4567"
+                        className="h-10 md:h-auto text-sm md:text-base"
                       />
                     </div>
 
-                    <div className="space-y-2">
-                      <Label htmlFor={emailJsFieldNames.company}>Company</Label>
+                    <div className="space-y-1 md:space-y-2">
+                      <Label htmlFor={emailJsFieldNames.company} className="text-sm md:text-base">Company</Label>
                       <Input
                         id={emailJsFieldNames.company}
                         name={emailJsFieldNames.company}
                         value={formState.company}
                         onChange={handleChange}
                         placeholder="Your Company Name"
+                        className="h-10 md:h-auto text-sm md:text-base"
                       />
                     </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="service-select">Service Interested In</Label>
+                  <div className="space-y-1 md:space-y-2">
+                    <Label htmlFor="service-select" className="text-sm md:text-base">Service Interested In</Label>
                     <Select
                       value={formState.service}
                       onValueChange={handleServiceChange}
                       required
                     >
-                      <SelectTrigger id="service-select" aria-required="true">
+                      <SelectTrigger id="service-select" aria-required="true" className="h-10 md:h-auto text-sm md:text-base">
                         <SelectValue placeholder="Select a service" />
                       </SelectTrigger>
                       <SelectContent>
@@ -473,28 +479,29 @@ export function ContactSection() {
                     <input type="hidden" name={emailJsFieldNames.service} value={formState.service} />
                   </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor={emailJsFieldNames.message}>Message</Label>
+                  <div className="space-y-1 md:space-y-2">
+                    <Label htmlFor={emailJsFieldNames.message} className="text-sm md:text-base">Message</Label>
                     <Textarea
                       id={emailJsFieldNames.message}
                       name={emailJsFieldNames.message}
                       value={formState.message}
                       onChange={handleChange}
                       placeholder="Tell us more about your project..."
-                      rows={5}
+                      rows={4}
                       required
                       aria-required="true"
+                      className="text-sm md:text-base"
                     />
                   </div>
                   <Button
                     type="submit"
-                    className="w-80 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white"
+                    className="w-full md:w-auto md:px-8 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white h-10 md:h-11 text-sm md:text-base"
                     disabled={isSubmitting || !isConfigAvailable}
                   >
                     {isSubmitting ? (
                       <span className="flex items-center justify-center"> 
                         <svg
-                          className="animate-spin -ml-1 mr-3 h-5 w-5" 
+                          className="animate-spin -ml-1 mr-2 h-4 w-4 md:h-5 md:w-5" 
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
@@ -517,7 +524,7 @@ export function ContactSection() {
                       </span>
                     ) : (
                       <span className="flex items-center justify-center">
-                        <Send className="mr-2 h-4 w-4" />
+                        <Send className="mr-2 h-3.5 w-3.5 md:h-4 md:w-4" />
                         Send Message
                       </span>
                     )}
