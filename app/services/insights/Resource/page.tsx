@@ -219,9 +219,9 @@ export default function ResourcesPage() {
       {/* Request Resource Section */}
       <section className="py-20 px-6 bg-gradient-to-r from-purple-500/20 to-pink-500/20">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Can't Find What You Need?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Can&apos;t Find What You Need?</h2>
           <p className="text-xl text-zinc-300 mb-8">
-            Let us know what resources would help you in your projects, and we'll consider creating them.
+            Let us know what resources would help you in your projects, and we&apos;ll consider creating them.
           </p>
           <Link
             href="/resources/request"
