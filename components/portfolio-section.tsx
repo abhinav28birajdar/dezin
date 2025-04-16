@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
@@ -30,24 +29,24 @@ const portfolioItems = [
   {
     id: 3,
     title: "Product Launch Campaign",
-    category: "Motion",
-    tags: ["Animation", "Social Media", "Video"],
+    category: "Typography",
+    tags: ["Font Design", "Editorial", "Display Type"],
     image: "/motion graphic.jpeg?height=600&width=800",
     link: "/portfolio/product-launch",
   },
   {
     id: 4,
     title: "Virtual Reality Experience",
-    category: "AR/VR",
-    tags: ["VR", "3D Modeling", "Interactive"],
+    category: "Illustration",
+    tags: ["Digital Art", "Character Design", "Concept Art"],
     image: "/Virtual Reality.jpeg?height=600&width=800",
     link: "/portfolio/vr-experience",
   },
   {
     id: 5,
     title: "Corporate Identity System",
-    category: "Branding",
-    tags: ["Logo", "Stationery", "Guidelines"],
+    category: "Logo",
+    tags: ["Brand Mark", "Symbol Design", "Identity"],
     image: "/Corporate.jpeg?height=600&width=800",
     link: "/portfolio/corporate-identity",
   },
@@ -59,10 +58,18 @@ const portfolioItems = [
     image: "/E-commerce Website.jpeg?height=600&width=800",
     link: "/portfolio/ecommerce-redesign",
   },
+  {
+    id: 7,
+    title: "Women Safety App Design",
+    category: "UI/UX",
+    tags: ["Mobile App", "Safety", "User-Centric"],
+    image: "/women-safety-app.jpeg?height=600&width=800",
+    link: "/portfolio/women-safety-app",
+  }  
 ]
 
 // Filter categories
-const categories = ["All", "Branding", "UI/UX", "Motion", "AR/VR", "Graphic Design", "Sound"]
+const categories = ["All", "Branding", "UI/UX", "Logo", "Typography", "Illustration", "Graphic Design"]
 
 export function PortfolioSection() {
   const [filter, setFilter] = useState("All")
@@ -72,18 +79,12 @@ export function PortfolioSection() {
   return (
     <section className="py-24 bg-muted/30">
       <div className="container px-4 md:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Our Portfolio</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Explore our diverse collection of projects showcasing our expertise across various design disciplines.
           </p>
-        </motion.div>
+        </div>
 
         {/* Filter Buttons */}
         <div className="flex flex-wrap justify-center gap-2 mb-12">
@@ -102,13 +103,7 @@ export function PortfolioSection() {
         {/* Portfolio Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredItems.map((item, index) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
+            <div key={item.id}>
               <Card className="overflow-hidden group">
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
@@ -118,9 +113,9 @@ export function PortfolioSection() {
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <Button asChild variant="secondary">
+                    {/* <Button asChild variant="secondary">
                       <Link href={item.link}>View Project</Link>
-                    </Button>
+                    </Button> */}
                   </div>
                 </div>
                 <CardContent className="pt-4">
@@ -137,26 +132,25 @@ export function PortfolioSection() {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Link
+                  {/* <Link
                     href={item.link}
                     className="text-sm font-medium text-primary flex items-center group-hover:underline"
                   >
                     View Case Study
                     <ArrowRight className="ml-1 h-4 w-4" />
-                  </Link>
+                  </Link> */}
                 </CardFooter>
               </Card>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         <div className="mt-12 text-center">
           <Button asChild size="lg">
-            <Link href="/portfolio">View All Projects</Link>
+            <Link href="https://x.com/artynexdesign">View All Projects</Link>
           </Button>
         </div>
       </div>
     </section>
   )
 }
-

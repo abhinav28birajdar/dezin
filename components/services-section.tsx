@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Link from "next/link"
 import Image from "next/image"
+import { link } from "fs"
 
 const services = [
   {
@@ -23,7 +24,7 @@ const services = [
     },
   },
   {
-    id: "ui-ux",
+    id: "uiuxdesign",
     title: "UI/UX Design",
     description: "User-centered design solutions that enhance usability and create delightful experiences.",
     icon: <Layers className="h-10 w-10" />,
@@ -41,7 +42,7 @@ const services = [
     },
   },
   {
-    id: "branding",
+    id: "Branding",
     title: "Branding",
     description: "Comprehensive branding strategies that build recognition and establish emotional connections.",
     icon: <Briefcase className="h-10 w-10" />,
@@ -53,7 +54,7 @@ const services = [
     },
   },
   {
-    id: "motion",
+    id: "motion-graphics",
     title: "Motion Graphics",
     description: "Dynamic animations and visual effects that bring your content to life and increase engagement.",
     icon: <Film className="h-10 w-10" />,
@@ -65,7 +66,7 @@ const services = [
     },
   },
   {
-    id: "event",
+    id: "eventdesign",
     title: "Cultural Event Design",
     description: "Curating memorable cultural experiences through creative themes, engaging visuals, and seamless execution.",
     icon: <CalendarDays className="h-10 w-10" />,
@@ -209,7 +210,7 @@ export function ServicesSection() {
                     </CardContent>
                     <CardFooter>
                       <Button variant="outline" asChild className="w-full">
-                        <Link href="/case-studies">View Case Study</Link>
+                        {/* <Link href="/case-studies">View Case Study</Link> */}
                       </Button>
                     </CardFooter>
                   </Card>

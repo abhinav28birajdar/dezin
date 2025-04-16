@@ -134,13 +134,13 @@ export function Footer() {
         <div className="border-t border-zinc-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-zinc-400">&copy; {new Date().getFullYear()} Artynex. All rights reserved.</p>
           <div className="flex space-x-4 mt-4 md:mt-0">
-            <Link href="/terms" className="text-sm text-zinc-400 hover:text-purple-500 transition-colors">
+            <Link href="/services/termsservices" className="text-sm text-zinc-400 hover:text-purple-500 transition-colors">
               Terms of Service
             </Link>
-            <Link href="/privacy" className="text-sm text-zinc-400 hover:text-purple-500 transition-colors">
+            <Link href="/services/PrivacyPolicy" className="text-sm text-zinc-400 hover:text-purple-500 transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/cookies" className="text-sm text-zinc-400 hover:text-purple-500 transition-colors">
+            <Link href="/services/CookiePolicy" className="text-sm text-zinc-400 hover:text-purple-500 transition-colors">
               Cookie Policy
             </Link>
           </div>
