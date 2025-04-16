@@ -1,12 +1,11 @@
-"use client"
-
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardFooter } from "@/components/ui/card"
-import { ArrowRight } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
+"use client";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+// Removed unused import: import { ArrowRight } from "lucide-react"
+import Link from "next/link";
+import Image from "next/image";
 
 // Portfolio data
 const portfolioItems = [
@@ -58,23 +57,22 @@ const portfolioItems = [
     image: "/E-commerce Website.jpeg?height=600&width=800",
     link: "/portfolio/ecommerce-redesign",
   },
-  {
+   {
     id: 7,
     title: "Women Safety App Design",
     category: "UI/UX",
     tags: ["Mobile App", "Safety", "User-Centric"],
     image: "/women-safety-app.jpeg?height=600&width=800",
     link: "/portfolio/women-safety-app",
-  }  
-]
+    }
+];
 
 // Filter categories
-const categories = ["All", "Branding", "UI/UX", "Logo", "Typography", "Illustration", "Graphic Design"]
+const categories = ["All", "Branding", "UI/UX", "Logo", "Typography", "Illustration", "Graphic Design"];
 
 export function PortfolioSection() {
-  const [filter, setFilter] = useState("All")
-
-  const filteredItems = filter === "All" ? portfolioItems : portfolioItems.filter((item) => item.category === filter)
+  const [filter, setFilter] = useState("All");
+  const filteredItems = filter === "All" ? portfolioItems : portfolioItems.filter((item) => item.category === filter);
 
   return (
     <section className="py-24 bg-muted/30">
@@ -102,7 +100,8 @@ export function PortfolioSection() {
 
         {/* Portfolio Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredItems.map((item, index) => (
+          {/* Removed unused index */}
+          {filteredItems.map((item) => (
             <div key={item.id}>
               <Card className="overflow-hidden group">
                 <div className="relative aspect-[4/3] overflow-hidden">
@@ -132,6 +131,7 @@ export function PortfolioSection() {
                   </div>
                 </CardContent>
                 <CardFooter>
+                  {/* Link using ArrowRight was commented out originally */}
                   {/* <Link
                     href={item.link}
                     className="text-sm font-medium text-primary flex items-center group-hover:underline"
@@ -152,5 +152,5 @@ export function PortfolioSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

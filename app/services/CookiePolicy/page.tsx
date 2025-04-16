@@ -1,5 +1,5 @@
-import PageHeader from "@/components/page-header"
-import Link from "next/link"
+import PageHeader from "@/components/page-header";
+import Link from "next/link";
 
 export default function CookiesPage() {
   return (
@@ -9,7 +9,6 @@ export default function CookiesPage() {
           <PageHeader />
         </div>
       </Link>
-
       <div className="max-w-4xl mx-auto px-6 py-16">
         <h1 className="text-3xl md:text-4xl font-bold mb-8">Cookie Policy</h1>
 
@@ -170,13 +169,13 @@ export default function CookiesPage() {
               <a href="mailto:hello@Artynex.com" className="text-purple-500 hover:text-purple-400">hello@Artynex.com</a>
               <a href="mailto:support@Artynex.com" className="text-purple-500 hover:text-purple-400">support@Artynex.com</a>
             </div>
-            
+
             <div className="flex flex-col">
               <h3 className="text-lg font-medium mb-3">Call Us</h3>
               <p className="text-zinc-400">+1 (555) 123-4567</p>
               <p className="text-zinc-400">Mon-Fri: 9am - 6pm EST</p>
             </div>
-            
+
             <div className="flex flex-col">
               <h3 className="text-lg font-medium mb-3">Visit Us</h3>
               <p className="text-zinc-400">Artynex</p>
@@ -192,5 +191,5 @@ export default function CookiesPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }

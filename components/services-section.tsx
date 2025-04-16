@@ -1,14 +1,13 @@
-"use client"
-
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { Palette, Layers, Briefcase, Film, ChevronRight, CalendarDays } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import Link from "next/link"
-import Image from "next/image"
-import { link } from "fs"
+"use client";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Palette, Layers, Briefcase, Film, ChevronRight, CalendarDays } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Link from "next/link";
+import Image from "next/image";
+// Removed unused import: import { link } from "fs"
 
 const services = [
   {
@@ -65,7 +64,7 @@ const services = [
       imageUrl: "/motiongraphic.jpeg",
     },
   },
-  {
+   {
     id: "eventdesign",
     title: "Cultural Event Design",
     description: "Curating memorable cultural experiences through creative themes, engaging visuals, and seamless execution.",
@@ -78,19 +77,19 @@ const services = [
       "Artist & Performance Coordination"
     ],
     caseStudy: {
-      title: "Festive Campus Carnival",
-      description: "Designed a vibrant cultural fest with captivating themes, dynamic performances, and cohesive branding.",
-      imageUrl: "/eventdesign.jpeg",
+    title: "Festive Campus Carnival",
+    description: "Designed a vibrant cultural fest with captivating themes, dynamic performances, and cohesive branding.",
+    imageUrl: "/eventdesign.jpeg",
     }
   }
-]
+];
 
 export function ServicesSection() {
-  const [activeTab, setActiveTab] = useState("graphic-design")
+  const [activeTab, setActiveTab] = useState("graphic-design");
 
   // Split services into two rows for mobile
-  const firstRowServices = services.slice(0, 3)
-  const secondRowServices = services.slice(3)
+  const firstRowServices = services.slice(0, 3);
+  const secondRowServices = services.slice(3);
 
   return (
     <section className="py-24 bg-background">
@@ -193,9 +192,9 @@ export function ServicesSection() {
                     <CardContent>
                       <div className="aspect-video bg-muted rounded-md mb-4 overflow-hidden relative">
                         {service.caseStudy.imageUrl ? (
-                          <Image 
-                            src={service.caseStudy.imageUrl} 
-                            alt={`${service.title} case study`} 
+                          <Image
+                            src={service.caseStudy.imageUrl}
+                            alt={`${service.title} case study`}
                             fill
                             className="object-cover"
                           />
@@ -210,6 +209,7 @@ export function ServicesSection() {
                     </CardContent>
                     <CardFooter>
                       <Button variant="outline" asChild className="w-full">
+                        {/* Link was commented out originally */}
                         {/* <Link href="/case-studies">View Case Study</Link> */}
                       </Button>
                     </CardFooter>
@@ -221,5 +221,5 @@ export function ServicesSection() {
         </Tabs>
       </div>
     </section>
-  )
+  );
 }
